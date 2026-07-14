@@ -51,7 +51,7 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center gap-2 bg-accent hover:bg-accent-light text-white font-medium px-6 py-3 md:px-8 md:py-4 rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(108, 99, 255, 0.4)] hover:-translate-y-0.5;
+    @apply inline-flex items-center gap-2 bg-accent hover:bg-accent-light text-white font-medium px-6 py-3 md:px-8 md:py-4 rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(108,99,255,0.4)] hover:-translate-y-0.5;
   }
 
   .btn-outline {
@@ -59,7 +59,7 @@
   }
 
   .card {
-    @apply bg-dark-200/80 backdrop-blur-sm border border-white/5 rounded-2xl transition-all duration-300 hover:border-accent/30 hover:shadow-[0_0_40px_rgba(108, 99, 255, 0.1)];
+    @apply bg-dark-200/80 backdrop-blur-sm border border-white/5 rounded-2xl transition-all duration-300 hover:border-accent/30 hover:shadow-[0_0_40px_rgba(108,99,255,0.1)];
   }
 
   .text-gradient {
@@ -80,11 +80,7 @@
 @media (max-width: 767px) {
   body {
     overflow: auto;
+    height: auto;
+    min-height: 100vh;
   }
-}
-
-height: auto;
-min-height: 100vh;
-overflow: visible;
-}
 }
