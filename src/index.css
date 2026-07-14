@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-dark text-white font-body;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  ::selection {
+    @apply bg-accent/30 text-white;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  * {
+    scrollbar-width: none;
+  }
+}
+
+@layer components {
+  .section-panel {
+    @apply w-screen h-screen flex-shrink-0 snap-start overflow-y-auto;
+    scrollbar-width: none;
+  }
+
+  .section-panel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .container-custom {
+    @apply w-full h-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16;
+  }
+
+  .section-label {
+    @apply text-accent font-display text-xs md:text-sm tracking-[0.2em] uppercase mb-6 md:mb-8;
+  }
+
+  .section-title {
+    @apply font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-accent hover:bg-accent-light text-white font-medium px-6 py-3 md:px-8 md:py-4 rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(108, 99, 255, 0.4)] hover:-translate-y-0.5;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border border-white/20 hover:border-accent text-white/80 hover:text-white font-medium px-6 py-3 md:px-8 md:py-4 rounded-full transition-all duration-300 hover:bg-accent/10;
+  }
+
+  .card {
+    @apply bg-dark-200/80 backdrop-blur-sm border border-white/5 rounded-2xl transition-all duration-300 hover:border-accent/30 hover:shadow-[0_0_40px_rgba(108, 99, 255, 0.1)];
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-accent-light;
+  }
+
+  .glass {
+    @apply bg-dark-200/60 backdrop-blur-xl border border-white/5;
+  }
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    overflow: auto;
+  }
+}
+
+height: auto;
+min-height: 100vh;
+overflow: visible;
+}
+}
