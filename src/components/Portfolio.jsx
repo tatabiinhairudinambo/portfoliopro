@@ -47,7 +47,7 @@ const projects = [
     fullDesc: 'A complete design system overhaul for a rapidly growing fintech platform.',
     tags: ['Design System', 'Figma', 'React', 'Storybook'],
     category: 'Branding',
-    image: 'https://picsum.photos/seed/lumina/800/600',
+    image: 'http://unggah.web.id/Yth-t-bHCqg_.jpg',
     gradient: 'from-purple-600 to-indigo-600',
     liveUrl: '#',
     githubUrl: '#',
