@@ -140,13 +140,13 @@ export default function Contact({ active }) {
             <div className="card p-5 md:p-8 space-y-4 md:space-y-6">
               <div>
                 <h3 className="font-display text-xs md:text-sm font-semibold text-white/40 mb-1">Email</h3>
-                <a href="mailto:hello@alexrivera.design" className="text-white hover:text-accent transition-colors text-sm md:text-base">
-                  hello@alexrivera.design
+                <a href="mailto:tataambo913@gmail.com" className="text-white hover:text-accent transition-colors text-sm md:text-base">
+                  tataambo913@gmail.com
                 </a>
               </div>
               <div>
                 <h3 className="font-display text-xs md:text-sm font-semibold text-white/40 mb-1">Location</h3>
-                <p className="text-white/60 text-sm md:text-base">San Francisco, CA</p>
+                <p className="text-white/60 text-sm md:text-base">Cileungsi, Jawa Barat, Indonesia</p>
               </div>
               <div>
                 <h3 className="font-display text-xs md:text-sm font-semibold text-white/40 mb-2 md:mb-3">Social</h3>
@@ -181,7 +181,7 @@ export default function Contact({ active }) {
           variants={fadeUp}
           className="mt-8 md:mt-12 pt-5 md:pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 md:gap-4 text-white/20 text-[11px] md:text-xs"
         >
-          <p>&copy; {new Date().getFullYear()} Alex Rivera. All rights reserved.</p>
+          <p>&copy; 2025 Developer Tatabiin Hairudin Ambo. All rights reserved.</p>
           <p>Designed & built with passion</p>
         </motion.div>
       </motion.div>
