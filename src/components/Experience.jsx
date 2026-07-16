@@ -124,7 +124,7 @@ export default function Experience({ active }) {
                         {item.type === 'education' ? 'Education' : 'Work'}
                       </span>
                     </div>
-                    <span className="text-accent/60 text-[11px] md:text-sm font-mono">{item.period}</span>
+                    <span className="text-green-400 text-[11px] md:text-sm font-mono">{item.period}</span>
                   </div>
                   <h3 className="font-display text-sm md:text-lg font-semibold text-white mt-2">{item.role}</h3>
                   <p className="text-accent/80 text-xs md:text-base font-medium mb-1.5 md:mb-2">{item.company}</p>
