@@ -81,7 +81,7 @@ export default function Experience({ active }) {
         animate={active ? 'visible' : 'hidden'}
       >
         <motion.p variants={fadeUp} className="section-label">Experience</motion.p>
-        <motion.h2 variants={fadeUp} className="section-title mb-8 md:mb-12">
+        <motion.h2 variants={fadeUp} className="section-title mb-6 md:mb-12">
           Career timeline
         </motion.h2>
 
@@ -90,10 +90,10 @@ export default function Experience({ active }) {
             initial={{ scaleY: 0 }}
             animate={active ? { scaleY: 1 } : { scaleY: 0 }}
             transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
-            className="absolute left-0 md:left-6 top-0 bottom-0 w-px origin-top bg-gradient-to-b from-accent via-accent/50 to-transparent"
+            className="absolute left-[5px] md:left-6 top-0 bottom-0 w-px origin-top bg-gradient-to-b from-accent via-accent/50 to-transparent"
           />
 
-          <div className="space-y-8 md:space-y-10 pl-6 md:pl-16">
+          <div className="space-y-5 md:space-y-10 pl-8 md:pl-16">
             {experience.map((item, i) => (
               <motion.div
                 key={i}
@@ -105,7 +105,7 @@ export default function Experience({ active }) {
               >
                 <motion.div
                   variants={dotPulse}
-                  className={`absolute -left-[25px] md:-left-[34px] top-1 w-3 h-3 rounded-full border-2 ${
+                  className={`absolute -left-[19px] md:-left-[34px] top-1 w-2.5 h-2.5 md:w-3 md:h-3 rounded-full border-2 ${
                     item.type === 'education'
                       ? 'border-accent bg-accent/20'
                       : 'border-accent bg-dark'
@@ -113,8 +113,8 @@ export default function Experience({ active }) {
                   style={{ boxShadow: '0 0 10px rgba(108,99,255,0.3)' }}
                 />
 
-                <div className="card p-5 md:p-6">
-                  <div className="flex items-start justify-between mb-2 flex-wrap gap-2">
+                <div className="card p-4 md:p-6">
+                  <div className="flex items-start justify-between mb-2 flex-wrap gap-1.5 md:gap-2">
                     <div>
                       <span className={`text-[10px] md:text-xs font-medium px-2 py-0.5 rounded-full ${
                         item.type === 'education'
@@ -124,11 +124,11 @@ export default function Experience({ active }) {
                         {item.type === 'education' ? 'Education' : 'Work'}
                       </span>
                     </div>
-                    <span className="text-accent/60 text-xs md:text-sm font-mono">{item.period}</span>
+                    <span className="text-accent/60 text-[11px] md:text-sm font-mono">{item.period}</span>
                   </div>
-                  <h3 className="font-display text-base md:text-lg font-semibold text-white mt-2">{item.role}</h3>
-                  <p className="text-accent/80 text-sm md:text-base font-medium mb-2">{item.company}</p>
-                  <p className="text-white/40 text-sm leading-relaxed">{item.desc}</p>
+                  <h3 className="font-display text-sm md:text-lg font-semibold text-white mt-2">{item.role}</h3>
+                  <p className="text-accent/80 text-xs md:text-base font-medium mb-1.5 md:mb-2">{item.company}</p>
+                  <p className="text-white/40 text-xs md:text-sm leading-relaxed">{item.desc}</p>
                 </div>
               </motion.div>
             ))}

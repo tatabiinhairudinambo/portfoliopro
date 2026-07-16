@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useHorizontalScroll } from './hooks/useHorizontalScroll'
 import Hero from './components/Hero'
@@ -12,14 +12,23 @@ import ScrollIndicator from './components/ScrollIndicator'
 import BackToTop from './components/BackToTop'
 import Cursor from './components/Cursor'
 
+const mobileSectionAnims = [
+  { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 0.5 } } },
+  { hidden: { opacity: 0, x: -60 }, visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } } },
+  { hidden: { opacity: 0, y: 50, scale: 0.95 }, visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } } },
+  { hidden: { opacity: 0, y: 40, rotateX: 8 }, visible: { opacity: 1, y: 0, rotateX: 0, transition: { duration: 0.65, ease: [0.25, 0.1, 0.25, 1] } } },
+  { hidden: { opacity: 0, x: -40, filter: 'blur(4px)' }, visible: { opacity: 1, x: 0, filter: 'blur(0px)', transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } } },
+  { hidden: { opacity: 0, scale: 0.92, y: 30 }, visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } } },
+  { hidden: { opacity: 0, y: 60 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } } },
+]
+
 function App() {
   const { containerRef, activeIndex, scrollTo, isMobile, sectionIds } = useHorizontalScroll()
   const [visibleSections, setVisibleSections] = useState({})
 
   useEffect(() => {
     setVisibleSections((prev) => ({ ...prev, [sectionIds[0]]: true }))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [sectionIds])
 
   useEffect(() => {
     if (isMobile) return
@@ -48,10 +57,7 @@ function App() {
       <BackToTop scrollTo={scrollTo} />
 
       {isMobile ? (
-        <MobileLayout
-          sectionIds={sectionIds}
-          scrollTo={scrollTo}
-        />
+        <MobileLayout sectionIds={sectionIds} scrollTo={scrollTo} />
       ) : (
         <div
           ref={containerRef}
@@ -70,40 +76,7 @@ function App() {
   )
 }
 
-const deckConfig = [
-  { rotateX: 22, y: 110, scale: 0.78, rotateZ: -2.5 },
-  { rotateX: 17, y: 85, scale: 0.82, rotateZ: 2 },
-  { rotateX: 12, y: 65, scale: 0.86, rotateZ: -1.5 },
-  { rotateX: 8, y: 50, scale: 0.90, rotateZ: 1 },
-  { rotateX: 14, y: 75, scale: 0.84, rotateZ: -2 },
-  { rotateX: 20, y: 95, scale: 0.80, rotateZ: 1.5 },
-  { rotateX: 10, y: 60, scale: 0.88, rotateZ: -1 },
-]
-
 function MobileLayout({ sectionIds, scrollTo }) {
-  const sectionRefs = useRef({})
-  const [mobileActive, setMobileActive] = useState({})
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setMobileActive((prev) => ({ ...prev, [entry.target.id]: true }))
-          }
-        })
-      },
-      { threshold: 0.12 }
-    )
-
-    const current = sectionRefs.current
-    sectionIds.forEach((id) => {
-      if (current[id]) observer.observe(current[id])
-    })
-
-    return () => observer.disconnect()
-  }, [sectionIds])
-
   const sections = [
     { id: 'hero', Comp: Hero, props: { scrollTo } },
     { id: 'about', Comp: About },
@@ -115,51 +88,20 @@ function MobileLayout({ sectionIds, scrollTo }) {
   ]
 
   return (
-    <div className="w-full bg-dark" style={{ perspective: '1400px' }}>
-      {sections.map(({ id, Comp, props }, index) => {
-        const cfg = deckConfig[index]
-        return (
-          <div
-            key={id}
-            ref={(el) => (sectionRefs.current[id] = el)}
-            id={id}
-            className="relative"
-            style={{ zIndex: sections.length - index }}
-          >
-            <motion.div
-              variants={{
-                hidden: {
-                  opacity: 0,
-                  y: cfg.y,
-                  rotateX: cfg.rotateX,
-                  rotateZ: cfg.rotateZ,
-                  scale: cfg.scale,
-                  filter: 'blur(8px)',
-                  transition: { duration: 0.45, ease: 'easeIn' },
-                },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  rotateX: 0,
-                  rotateZ: 0,
-                  scale: 1,
-                  filter: 'blur(0px)',
-                  transition: {
-                    duration: 0.9,
-                    ease: [0.25, 0.1, 0.25, 1],
-                    delay: index * 0.04,
-                  },
-                },
-              }}
-              initial="hidden"
-              animate={mobileActive[id] ? 'visible' : 'hidden'}
-              style={{ transformOrigin: 'center bottom', transformStyle: 'preserve-3d' }}
-            >
-              <Comp active={!!mobileActive[id]} {...props} />
-            </motion.div>
-          </div>
-        )
-      })}
+    <div className="w-full bg-dark">
+      {sections.map(({ id, Comp, props }, index) => (
+        <motion.div
+          key={id}
+          id={id}
+          variants={mobileSectionAnims[index]}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          className="relative"
+        >
+          <Comp active={true} {...props} />
+        </motion.div>
+      ))}
     </div>
   )
 }

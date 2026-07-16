@@ -27,8 +27,8 @@ export default function Navbar({ activeIndex, scrollTo, isMobile }) {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled || !isMobile ? 'glass' : 'bg-transparent'}`}>
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
-        <div className="flex items-center justify-end h-16 md:h-20">
+      <div className="max-w-7xl mx-auto px-4 md:px-12 lg:px-16">
+        <div className="flex items-center justify-end h-14 md:h-20">
 
           {isMobile ? (
             <>
@@ -59,12 +59,15 @@ export default function Navbar({ activeIndex, scrollTo, isMobile }) {
                     exit={{ opacity: 0, y: -20 }}
                     className="absolute top-full left-0 right-0 glass border-t border-white/5"
                   >
-                    <div className="px-6 py-6 space-y-1">
+                    <div className="px-4 py-4 space-y-0.5">
                       {NAV_ITEMS.map((item, i) => (
                         <button
                           key={item.section}
-                          onClick={() => scrollTo(i)}
-                          className={`block w-full text-left px-4 py-3 rounded-xl transition-all duration-300 font-medium text-sm ${
+                          onClick={() => {
+                            scrollTo(i)
+                            setIsOpen(false)
+                          }}
+                          className={`block w-full text-left px-4 py-2.5 rounded-xl transition-all duration-300 font-medium text-sm ${
                             activeIndex === i
                               ? 'bg-accent/10 text-accent'
                               : 'text-white/60 hover:text-white hover:bg-white/5'

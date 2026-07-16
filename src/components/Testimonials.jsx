@@ -89,29 +89,29 @@ export default function Testimonials({ active }) {
         animate={active ? 'visible' : 'hidden'}
       >
         <motion.p variants={fadeUp} className="section-label">Testimonials</motion.p>
-        <motion.h2 variants={fadeUp} className="section-title mb-8 md:mb-12">
+        <motion.h2 variants={fadeUp} className="section-title mb-6 md:mb-12">
           What people say
         </motion.h2>
 
-        <motion.div variants={fadeUp} className="grid md:grid-cols-3 gap-4 md:gap-6" style={{ perspective: '1200px' }}>
+        <motion.div variants={fadeUp} className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6" style={{ perspective: '1200px' }}>
           {testimonials.map((item, i) => (
             <motion.div
               key={i}
               variants={card3DEntrance[i]}
-              className="card p-6 md:p-8 flex flex-col relative group"
+              className="card p-5 md:p-8 flex flex-col relative group"
               style={{ transformStyle: 'preserve-3d' }}
             >
-              <div className="absolute top-4 right-4 text-accent/10 text-6xl font-display font-bold leading-none select-none">&ldquo;</div>
+              <div className="absolute top-4 right-4 text-accent/10 text-5xl md:text-6xl font-display font-bold leading-none select-none">&ldquo;</div>
               <div className="flex-1">
-                <p className="text-white/50 text-sm md:text-base leading-relaxed mb-6 relative z-10">{item.quote}</p>
+                <p className="text-white/50 text-sm md:text-base leading-relaxed mb-5 md:mb-6 relative z-10">{item.quote}</p>
               </div>
-              <div className="flex items-center gap-4 pt-4 border-t border-white/5">
-                <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${item.color} flex items-center justify-center flex-shrink-0`}>
-                  <span className="text-white text-xs font-bold">{item.initials}</span>
+              <div className="flex items-center gap-3 md:gap-4 pt-3 md:pt-4 border-t border-white/5">
+                <div className={`w-9 h-9 md:w-10 md:h-10 rounded-full bg-gradient-to-br ${item.color} flex items-center justify-center flex-shrink-0`}>
+                  <span className="text-white text-[11px] md:text-xs font-bold">{item.initials}</span>
                 </div>
                 <div>
-                  <div className="font-display text-sm font-semibold text-white">{item.name}</div>
-                  <div className="text-white/30 text-xs">{item.role}</div>
+                  <div className="font-display text-xs md:text-sm font-semibold text-white">{item.name}</div>
+                  <div className="text-white/30 text-[11px] md:text-xs">{item.role}</div>
                 </div>
               </div>
             </motion.div>

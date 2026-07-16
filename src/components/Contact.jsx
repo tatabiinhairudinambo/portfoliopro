@@ -100,7 +100,7 @@ const socials = [
   },
 ]
 
-const inputClass = "w-full px-5 py-4 bg-dark-200 border border-white/5 rounded-xl text-white placeholder-white/20 outline-none focus:border-accent/50 focus:shadow-[0_0_20px_rgba(108,99,255,0.1)] transition-all duration-300"
+const inputClass = "w-full px-4 md:px-5 py-3 md:py-4 bg-dark-200 border border-white/5 rounded-xl text-white text-sm placeholder-white/20 outline-none focus:border-accent/50 focus:shadow-[0_0_20px_rgba(108,99,255,0.1)] transition-all duration-300"
 
 export default function Contact({ active }) {
   return (
@@ -113,21 +113,21 @@ export default function Contact({ active }) {
         style={{ perspective: '1200px' }}
       >
         <motion.p variants={fadeUp} className="section-label">Contact</motion.p>
-        <motion.h2 variants={fadeUp} className="section-title mb-8 md:mb-12">
+        <motion.h2 variants={fadeUp} className="section-title mb-6 md:mb-12">
           Let's create{' '}
           <span className="text-gradient">something great</span>
         </motion.h2>
 
-        <div className="grid md:grid-cols-5 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-12">
           <motion.div variants={formReveal} className="md:col-span-3" style={{ transformStyle: 'preserve-3d' }}>
-            <form onSubmit={(e) => e.preventDefault()} className="space-y-4 md:space-y-5">
-              <div className="grid sm:grid-cols-2 gap-4">
+            <form onSubmit={(e) => e.preventDefault()} className="space-y-3 md:space-y-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
                 <input type="text" placeholder="Your Name" className={inputClass} />
                 <input type="email" placeholder="Your Email" className={inputClass} />
               </div>
               <input type="text" placeholder="Subject" className={inputClass} />
-              <textarea rows={5} placeholder="Your Message" className={`${inputClass} resize-none`} />
-              <button type="submit" className="btn-primary w-full justify-center">
+              <textarea rows={4} placeholder="Your Message" className={`${inputClass} resize-none`} />
+              <button type="submit" className="btn-primary w-full justify-center text-sm">
                 Send Message
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
@@ -136,21 +136,21 @@ export default function Contact({ active }) {
             </form>
           </motion.div>
 
-          <motion.div variants={infoReveal} className="md:col-span-2 space-y-6" style={{ transformStyle: 'preserve-3d' }}>
-            <div className="card p-6 md:p-8 space-y-6">
+          <motion.div variants={infoReveal} className="md:col-span-2 space-y-4 md:space-y-6" style={{ transformStyle: 'preserve-3d' }}>
+            <div className="card p-5 md:p-8 space-y-4 md:space-y-6">
               <div>
-                <h3 className="font-display text-sm font-semibold text-white/40 mb-1">Email</h3>
+                <h3 className="font-display text-xs md:text-sm font-semibold text-white/40 mb-1">Email</h3>
                 <a href="mailto:hello@alexrivera.design" className="text-white hover:text-accent transition-colors text-sm md:text-base">
                   hello@alexrivera.design
                 </a>
               </div>
               <div>
-                <h3 className="font-display text-sm font-semibold text-white/40 mb-1">Location</h3>
+                <h3 className="font-display text-xs md:text-sm font-semibold text-white/40 mb-1">Location</h3>
                 <p className="text-white/60 text-sm md:text-base">San Francisco, CA</p>
               </div>
               <div>
-                <h3 className="font-display text-sm font-semibold text-white/40 mb-3">Social</h3>
-                <motion.div variants={socialStagger} initial="hidden" animate={active ? 'visible' : 'hidden'} className="flex gap-3">
+                <h3 className="font-display text-xs md:text-sm font-semibold text-white/40 mb-2 md:mb-3">Social</h3>
+                <motion.div variants={socialStagger} initial="hidden" animate={active ? 'visible' : 'hidden'} className="flex gap-2.5 md:gap-3">
                   {socials.map((social) => (
                     <motion.a
                       key={social.name}
@@ -158,7 +158,7 @@ export default function Contact({ active }) {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-xl bg-dark-300 border border-white/5 flex items-center justify-center text-white/40 hover:text-accent hover:border-accent/30 hover:shadow-[0_0_20px_rgba(108,99,255,0.15)] transition-all duration-300"
+                      className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-dark-300 border border-white/5 flex items-center justify-center text-white/40 hover:text-accent hover:border-accent/30 hover:shadow-[0_0_20px_rgba(108,99,255,0.15)] transition-all duration-300"
                       aria-label={social.name}
                     >
                       {social.icon}
@@ -168,8 +168,8 @@ export default function Contact({ active }) {
               </div>
             </div>
 
-            <div className="card p-6 md:p-8">
-              <p className="text-white/30 text-sm leading-relaxed">
+            <div className="card p-5 md:p-8">
+              <p className="text-white/30 text-xs md:text-sm leading-relaxed">
                 Currently open to freelance projects and full-time opportunities. 
                 I typically respond within 24 hours.
               </p>
@@ -179,7 +179,7 @@ export default function Contact({ active }) {
 
         <motion.div
           variants={fadeUp}
-          className="mt-10 md:mt-12 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-white/20 text-xs"
+          className="mt-8 md:mt-12 pt-5 md:pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 md:gap-4 text-white/20 text-[11px] md:text-xs"
         >
           <p>&copy; {new Date().getFullYear()} Alex Rivera. All rights reserved.</p>
           <p>Designed & built with passion</p>

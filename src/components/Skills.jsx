@@ -107,26 +107,26 @@ export default function Skills({ active }) {
         animate={active ? 'visible' : 'hidden'}
       >
         <motion.p variants={fadeUp} className="section-label">Skills & Expertise</motion.p>
-        <motion.h2 variants={fadeUp} className="section-title mb-8 md:mb-12">
+        <motion.h2 variants={fadeUp} className="section-title mb-6 md:mb-12">
           Tools I wield
         </motion.h2>
 
-        <div className="grid md:grid-cols-3 gap-4 md:gap-6 perspective-1000">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 perspective-1000">
           {skillCategories.map((cat, i) => (
             <motion.div
               key={cat.title}
               custom={i}
               variants={cardFlip3D(i)}
-              className="card p-6 md:p-8"
+              className="card p-5 md:p-8"
               style={{ transformStyle: 'preserve-3d' }}
             >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center">
-                  <span className="text-accent font-display font-bold text-sm">0{i + 1}</span>
+              <div className="flex items-center gap-3 mb-4 md:mb-6">
+                <div className="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-accent/10 flex items-center justify-center">
+                  <span className="text-accent font-display font-bold text-xs md:text-sm">0{i + 1}</span>
                 </div>
-                <h3 className="font-display text-lg font-semibold text-white">{cat.title}</h3>
+                <h3 className="font-display text-base md:text-lg font-semibold text-white">{cat.title}</h3>
               </div>
-              <div className="space-y-5">
+              <div className="space-y-4 md:space-y-5">
                 {cat.skills.map((skill, j) => (
                   <SkillBar key={skill.name} {...skill} index={j} />
                 ))}
