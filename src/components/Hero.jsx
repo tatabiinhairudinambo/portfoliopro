@@ -79,12 +79,12 @@ export default function Hero({ scrollTo }) {
       </div>
 
       {/* Layer 1: Solid Text (Background) */}
-      <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none select-none overflow-hidden">
+      <div className="absolute inset-0 flex items-center justify-center mb-[75vh] md:mb-[65vh] z-10 pointer-events-none select-none overflow-hidden">
         <motion.h1 
           variants={slideLeft}
           initial="hidden"
           animate="visible"
-          className="font-display font-black text-[18vw] md:text-[18vw] leading-none tracking-tighter uppercase whitespace-nowrap text-center w-full -translate-y-16 md:-translate-y-24"
+          className="font-display font-black text-[18vw] md:text-[18vw] leading-none tracking-tighter uppercase whitespace-nowrap text-center w-full"
         >
           <span className="text-white/5">PORT</span><span className="text-blue-500/10">FOLIO</span>
         </motion.h1>
@@ -203,12 +203,12 @@ export default function Hero({ scrollTo }) {
       </motion.div>
 
       {/* Layer 3 - Outlined Text (Foreground) */}
-      <div className="absolute inset-0 flex items-center justify-center z-30 pointer-events-none select-none overflow-hidden">
+      <div className="absolute inset-0 flex items-center justify-center mb-[75vh] md:mb-[65vh] z-30 pointer-events-none select-none overflow-hidden">
         <motion.h1 
           variants={slideLeft}
           initial="hidden"
           animate="visible"
-          className="font-display font-black text-[18vw] md:text-[18vw] leading-none tracking-tighter uppercase whitespace-nowrap text-center w-full -translate-y-16 md:-translate-y-24"
+          className="font-display font-black text-[18vw] md:text-[18vw] leading-none tracking-tighter uppercase whitespace-nowrap text-center w-full"
           style={{ color: 'transparent' }}
         >
           <span style={{ WebkitTextStroke: '2px rgba(255,255,255,0.2)' }}>PORT</span><span style={{ WebkitTextStroke: '2px rgba(59,130,246,0.6)' }}>FOLIO</span>

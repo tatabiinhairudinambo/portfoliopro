@@ -43,7 +43,7 @@
   }
 
   .section-label {
-    @apply text-accent font-display text-xs md:text-sm tracking-[0.2em] uppercase mb-6 md:mb-8;
+    @apply text-accent font-display text-base md:text-xl tracking-[0.2em] uppercase mb-6 md:mb-8 font-semibold;
   }
 
   .section-title {
@@ -58,8 +58,30 @@
     @apply inline-flex items-center gap-2 border border-white/20 hover:border-accent text-white/80 hover:text-white font-medium px-6 py-3 md:px-8 md:py-4 rounded-full transition-all duration-300 hover:bg-accent/10;
   }
 
+  @keyframes slideInLeft {
+    from { 
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from { 
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
   .card {
-    @apply bg-dark-200/80 border border-white/5 rounded-2xl transition-all duration-300 hover:border-accent/30 hover:shadow-[0_0_40px_rgba(108,99,255,0.1)];
+    @apply bg-transparent border border-white/5 rounded-2xl transition-all duration-300 hover:border-accent/30 hover:shadow-[0_0_40px_rgba(108,99,255,0.1)];
   }
 
   .text-gradient {
