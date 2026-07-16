@@ -173,7 +173,7 @@ function ProjectModal({ project, onClose }) {
           style={{ scrollbarWidth: 'none' }}
         >
           <div className={`h-40 md:h-72 bg-gradient-to-br ${project.gradient} relative`}>
-            <img src={project.image} alt={project.title} className="w-full h-full object-cover mix-blend-overlay opacity-30" />
+            <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent" />
             <button onClick={onClose} className="absolute top-3 right-3 md:top-4 md:right-4 w-9 h-9 md:w-10 md:h-10 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center hover:bg-black/60 transition-colors">
               <svg className="w-4 h-4 md:w-5 md:h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -257,7 +257,7 @@ export default function Portfolio({ active }) {
               className="group card overflow-hidden cursor-pointer"
             >
               <div className={`h-36 md:h-48 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
-                <img src={project.image} alt={project.title} className="w-full h-full object-cover mix-blend-overlay opacity-30 group-hover:opacity-50 group-hover:scale-105 transition-all duration-500" />
+                <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" />
                 <div className="absolute inset-0 bg-dark/30 group-hover:bg-dark/10 transition-colors duration-500" />
                 <div className="absolute top-3 left-3 md:top-4 md:left-4">
                   <span className="text-white/80 font-display text-2xl md:text-3xl font-bold">0{i + 1}</span>
