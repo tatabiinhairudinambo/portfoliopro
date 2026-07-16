@@ -125,12 +125,7 @@ export default function About({ active }) {
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
       >
-        <div className="grid md:grid-cols-2 gap-4 md:gap-12 lg:gap-16 items-center mb-6 md:mb-8">
-          <motion.p variants={fadeUp} className="section-label !mb-0">About Me</motion.p>
-          <motion.h3 variants={fadeUp} className="font-display text-2xl md:text-3xl font-bold text-white text-center">
-            Team <span className="text-gradient">Hydra Core Digitech</span>
-          </motion.h3>
-        </div>
+        <motion.p variants={fadeUp} className="section-label !mb-0 mb-6 md:mb-8">About Me</motion.p>
 
         <div className="grid md:grid-cols-2 gap-4 md:gap-12 lg:gap-16">
           <motion.div variants={leftAnim} className="space-y-3 md:space-y-5">
@@ -208,6 +203,10 @@ export default function About({ active }) {
           </motion.div>
 
           <motion.div variants={rightAnim} className="flex flex-col h-full mt-4 md:mt-0">
+
+            <motion.h3 variants={fadeUp} className="font-display text-2xl md:text-3xl font-bold text-white text-center mb-4 md:mb-6">
+              Team <span className="text-gradient">Hydra Core Digitech</span>
+            </motion.h3>
 
             {/* Media Container */}
             <div className="w-full aspect-[4/3] rounded-2xl md:rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl relative group">
