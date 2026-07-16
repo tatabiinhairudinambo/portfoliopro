@@ -138,7 +138,7 @@ export default function Hero({ scrollTo }) {
                   <div className="absolute top-3 left-1/2 -translate-x-1/2 w-10 h-2.5 bg-dark/60 rounded-full shadow-inner z-20 backdrop-blur-sm border border-white/20"></div>
                   <div className="absolute top-8 md:top-10 inset-x-0 flex justify-center z-20">
                     <h3 className="text-white/90 font-display font-bold text-[10px] sm:text-xs md:text-base tracking-widest uppercase drop-shadow-md">
-                      {getValue('hero_name', 'Tatabiin Hairudin Ambo')}
+                      Tatabiin Hairudin Ambo
                     </h3>
                   </div>
                 </div>
@@ -146,7 +146,7 @@ export default function Hero({ scrollTo }) {
                 {/* BACK FACE */}
                 <div className="absolute inset-0 bg-dark rounded-[1.25rem] md:rounded-[1.5rem] shadow-[0_0_40px_rgba(0,0,0,0.5)] overflow-hidden border border-accent/40" style={{ transform: 'rotateY(180deg)', backfaceVisibility: 'hidden' }}>
                   <img
-                    src={getValue('hero_back_img', '/belakang.jpg')}
+                    src="/belakang.jpg"
                     alt="ID Card Back"
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                   />
@@ -176,10 +176,10 @@ export default function Hero({ scrollTo }) {
             style={{ width: "fit-content" }}
           >
             <p className="text-white/90 font-body text-[11px] sm:text-sm md:text-base font-light tracking-wide pr-10">
-              {getValue('hero_running_text', 'Saya membantu bisnis, UMKM, startup...')}
+              Saya membantu bisnis, UMKM, startup...
             </p>
             <p className="text-white/90 font-body text-[11px] sm:text-sm md:text-base font-light tracking-wide pr-10">
-              {getValue('hero_running_text', 'Saya membantu bisnis, UMKM, startup...')}
+              Saya membantu bisnis, UMKM, startup...
             </p>
           </motion.div>
         </div>
@@ -217,7 +217,7 @@ export default function Hero({ scrollTo }) {
           className="font-display font-black text-[18vw] md:text-[18vw] leading-none tracking-tighter uppercase whitespace-nowrap text-center w-full"
           style={{ color: 'transparent' }}
         >
-          <span style={{ WebkitTextStroke: '2px rgba(255,255,255,0.2)' }}>{getValue('hero_title_1', 'PORT')}</span><span style={{ WebkitTextStroke: '2px rgba(59,130,246,0.6)' }}>{getValue('hero_title_2', 'FOLIO')}</span>
+          <span style={{ WebkitTextStroke: '2px rgba(255,255,255,0.2)' }}>PORT</span><span style={{ WebkitTextStroke: '2px rgba(59,130,246,0.6)' }}>FOLIO</span>
         </motion.h1>
       </div>
 
