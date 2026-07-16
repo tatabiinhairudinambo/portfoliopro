@@ -89,12 +89,33 @@ export default function About({ active }) {
               helping teams translate their vision into compelling digital products 
               that users love.
             </p>
-            <div className="flex flex-wrap gap-2 md:gap-3 pt-2">
-              {['Design Systems', 'UI/UX', 'Frontend', 'Prototyping', 'Brand Identity'].map((tag) => (
-                <span key={tag} className="px-3 md:px-4 py-1.5 md:py-2 text-[11px] md:text-xs font-medium bg-dark-200 border border-white/5 rounded-full text-white/50">
-                  {tag}
-                </span>
-              ))}
+            <div className="pt-2 space-y-2 overflow-hidden">
+              <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+                <motion.div
+                  className="flex gap-2 md:gap-3 w-max"
+                  animate={{ x: ['0%', '-50%'] }}
+                  transition={{ repeat: Infinity, duration: 18, ease: 'linear' }}
+                >
+                  {[...['Design Systems', 'UI/UX', 'Frontend', 'Prototyping', 'Brand Identity'], ...['Design Systems', 'UI/UX', 'Frontend', 'Prototyping', 'Brand Identity']].map((tag, i) => (
+                    <span key={`r1-${i}`} className="px-3 md:px-4 py-1.5 md:py-2 text-[11px] md:text-xs font-medium bg-dark-200 border border-white/5 rounded-full text-white/50 whitespace-nowrap">
+                      {tag}
+                    </span>
+                  ))}
+                </motion.div>
+              </div>
+              <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+                <motion.div
+                  className="flex gap-2 md:gap-3 w-max"
+                  animate={{ x: ['-50%', '0%'] }}
+                  transition={{ repeat: Infinity, duration: 20, ease: 'linear' }}
+                >
+                  {[...['React / Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'GSAP'], ...['React / Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'GSAP']].map((tag, i) => (
+                    <span key={`r2-${i}`} className="px-3 md:px-4 py-1.5 md:py-2 text-[11px] md:text-xs font-medium bg-dark-200 border border-white/5 rounded-full text-white/50 whitespace-nowrap">
+                      {tag}
+                    </span>
+                  ))}
+                </motion.div>
+              </div>
             </div>
             <a href="/resume.pdf" download className="btn-outline inline-flex mt-3 md:mt-4 text-sm md:ml-6">
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
