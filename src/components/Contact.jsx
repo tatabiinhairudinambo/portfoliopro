@@ -143,7 +143,7 @@ export default function Contact({ active }) {
               </div>
               <div>
                 <h3 className="font-display text-xs md:text-sm font-semibold text-white/40 mb-1">Location</h3>
-                <p className="text-white/60 text-sm md:text-base">Cileungsi, Jawa Barat, Indonesia</p>
+                <p className="text-white text-sm md:text-base">Cileungsi, Jawa Barat, Indonesia</p>
               </div>
               <div>
                 <h3 className="font-display text-xs md:text-sm font-semibold text-white/40 mb-2 md:mb-3">Social</h3>
