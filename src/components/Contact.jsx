@@ -128,10 +128,7 @@ export default function Contact({ active }) {
               <input type="text" placeholder="Subject" className={inputClass} />
               <textarea rows={4} placeholder="Your Message" className={`${inputClass} resize-none`} />
               <button type="submit" className="btn-primary w-full justify-center text-sm">
-                Send Message
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                </svg>
+                Kirim Pesan
               </button>
             </form>
           </motion.div>
