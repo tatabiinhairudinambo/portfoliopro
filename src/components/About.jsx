@@ -107,6 +107,14 @@ export default function About({ active }) {
   }
 
   useEffect(() => {
+    const timer = setInterval(() => {
+      setSlideDirection('right')
+      setCurrentSlide((prev) => (prev + 1) % slides.length)
+    }, 4000)
+    return () => clearInterval(timer)
+  }, [])
+
+  useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768)
     check()
     window.addEventListener('resize', check)
