@@ -17,7 +17,7 @@ const fadeUp = {
 }
 
 const fromLeft = {
-  hidden: { opacity: 0, x: -140, skewX: 5, filter: 'blur(4px)', transition: { duration: 0.6 } },
+  hidden: { opacity: 0, x: -60, skewX: 3, filter: 'blur(4px)', transition: { duration: 0.6 } },
   visible: {
     opacity: 1,
     x: 0,
@@ -28,7 +28,7 @@ const fromLeft = {
 }
 
 const fromRight = {
-  hidden: { opacity: 0, x: 140, skewX: -5, filter: 'blur(4px)', transition: { duration: 0.6 } },
+  hidden: { opacity: 0, x: 60, skewX: -3, filter: 'blur(4px)', transition: { duration: 0.6 } },
   visible: {
     opacity: 1,
     x: 0,
@@ -39,14 +39,14 @@ const fromRight = {
 }
 
 const statFlip = (i) => ({
-  hidden: { opacity: 0, y: 60, rotateX: 50, scale: 0.8, transition: { duration: 0.4 } },
+  hidden: { opacity: 0, y: 40, rotateX: 30, scale: 0.85, transition: { duration: 0.4 } },
   visible: {
     opacity: 1,
     y: 0,
     rotateX: 0,
     scale: 1,
     transition: {
-      delay: i * 0.1,
+      delay: i * 0.08,
       duration: 0.7,
       ease: [0.25, 0.1, 0.25, 1],
     },
@@ -113,7 +113,7 @@ export default function About({ active }) {
                   transition={{ repeat: Infinity, duration: 18, ease: 'linear' }}
                 >
                   {[...row1Tags, ...row1Tags].map((tag, i) => (
-                    <span key={`r1-${i}`} className={`inline-flex items-center gap-1.5 px-3 md:px-4 py-1.5 md:py-2 text-[11px] md:text-xs font-medium border rounded-full whitespace-nowrap ${tag.color}`}>
+                    <span key={`r1-${i}`} className={`inline-flex items-center gap-1 md:gap-1.5 px-2.5 md:px-4 py-1 md:py-2 text-[10px] md:text-xs font-medium border rounded-full whitespace-nowrap ${tag.color}`}>
                       {tag.icon}
                       {tag.label}
                     </span>
@@ -127,7 +127,7 @@ export default function About({ active }) {
                   transition={{ repeat: Infinity, duration: 20, ease: 'linear' }}
                 >
                   {[...row2Tags, ...row2Tags].map((tag, i) => (
-                    <span key={`r2-${i}`} className={`inline-flex items-center gap-1.5 px-3 md:px-4 py-1.5 md:py-2 text-[11px] md:text-xs font-medium border rounded-full whitespace-nowrap ${tag.color}`}>
+                    <span key={`r2-${i}`} className={`inline-flex items-center gap-1 md:gap-1.5 px-2.5 md:px-4 py-1 md:py-2 text-[10px] md:text-xs font-medium border rounded-full whitespace-nowrap ${tag.color}`}>
                       {tag.icon}
                       {tag.label}
                     </span>
@@ -135,7 +135,7 @@ export default function About({ active }) {
                 </motion.div>
               </div>
             </div>
-            <a href="/resume.pdf" download className="btn-outline inline-flex mt-3 md:mt-4 text-sm md:ml-6">
+            <a href="/resume.pdf" download className="btn-outline inline-flex mt-3 md:mt-4 text-xs md:text-sm">
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
@@ -143,31 +143,31 @@ export default function About({ active }) {
             </a>
           </motion.div>
 
-          <motion.div variants={fromRight} className="grid grid-cols-2 gap-3 md:gap-4">
+          <motion.div variants={fromRight} className="grid grid-cols-2 gap-2.5 md:gap-4">
             {stats.map((stat, i) => (
               <motion.div
                 key={i}
                 custom={i}
                 variants={statFlip(i)}
-                className="card p-4 md:p-8 text-center"
+                className="card p-3 md:p-8 text-center"
                 style={{ transformStyle: 'preserve-3d', perspective: '1000px' }}
               >
-                <div className="font-display text-2xl md:text-4xl font-bold text-gradient mb-1">{stat.number}</div>
-                <div className="text-white/40 text-[11px] md:text-sm">{stat.label}</div>
+                <div className="font-display text-xl md:text-4xl font-bold text-gradient mb-0.5 md:mb-1">{stat.number}</div>
+                <div className="text-white/40 text-[10px] md:text-sm">{stat.label}</div>
               </motion.div>
             ))}
             <motion.div
               variants={statFlip(4)}
-              className="col-span-2 card p-4 md:p-8 flex items-center gap-3 md:gap-4"
+              className="col-span-2 card p-3 md:p-8 flex items-center gap-2.5 md:gap-4"
             >
-              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
-                <svg className="w-5 h-5 md:w-6 md:h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="w-9 h-9 md:w-12 md:h-12 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
+                <svg className="w-4 h-4 md:w-6 md:h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
               <div>
-                <div className="font-display text-xs md:text-sm font-semibold text-white">Available for work</div>
-                <div className="text-white/40 text-[11px] md:text-xs">Freelance & full-time projects</div>
+                <div className="font-display text-[11px] md:text-sm font-semibold text-white">Available for work</div>
+                <div className="text-white/40 text-[10px] md:text-xs">Freelance & full-time projects</div>
               </div>
             </motion.div>
           </motion.div>
