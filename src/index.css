@@ -59,7 +59,7 @@
   }
 
   .card {
-    @apply bg-dark-200/80 backdrop-blur-sm border border-white/5 rounded-2xl transition-all duration-300 hover:border-accent/30 hover:shadow-[0_0_40px_rgba(108,99,255,0.1)];
+    @apply bg-dark-200/80 border border-white/5 rounded-2xl transition-all duration-300 hover:border-accent/30 hover:shadow-[0_0_40px_rgba(108,99,255,0.1)];
   }
 
   .text-gradient {
