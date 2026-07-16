@@ -191,7 +191,7 @@ export default function About({ active }) {
                 custom={i}
                 variants={statFlip(i)}
                 className="card p-3 md:p-8 text-center"
-                style={{ transformStyle: 'preserve-3d', perspective: '1000px' }}
+                style={isMobile ? {} : { transformStyle: 'preserve-3d', perspective: '1000px' }}
               >
                 <div className="font-display text-xl md:text-4xl font-bold text-gradient mb-0.5 md:mb-1">{stat.number}</div>
                 <div className="text-white/40 text-[10px] md:text-sm">{stat.label}</div>
