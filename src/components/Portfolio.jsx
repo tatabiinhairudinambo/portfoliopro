@@ -48,7 +48,7 @@ const projects = [
     tags: ['Design System', 'Figma', 'React', 'Storybook'],
     category: 'Branding',
     image: 'http://unggah.web.id/Yth-t-bHCqg_.jpg',
-    gradient: 'from-purple-600 to-indigo-600',
+    gradient: 'from-transparent to-transparent',
     liveUrl: '#',
     githubUrl: '#',
   },
