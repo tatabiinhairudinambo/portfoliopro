@@ -30,7 +30,8 @@ const albums = [
     className: 'md:col-span-1 md:row-span-1',
     media: [
       { type: 'image', url: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=1200&q=80', caption: 'Workspace Setup' },
-      { type: 'image', url: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&q=80', caption: 'Coffee Break' }
+      { type: 'image', url: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&q=80', caption: 'Coffee Break' },
+      { type: 'image', url: 'https://unggah.web.id/PlEP7ywUSqNB.jpeg', caption: 'Vibe Coding' }
     ]
   },
   {
