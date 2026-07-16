@@ -43,46 +43,46 @@ function TagPill({ tag }) {
 const projects = [
   {
     title: 'Topos Digital',
-    desc: 'Comprehensive design system for a fintech startup serving 50K+ users.',
-    fullDesc: 'Kelola penjualan, stok gudang, dan laporan keuangan dalam satu aplikasi. Tanpa ribet, langsung pakai.',
+    desc: <>Lihat Langsung Bagaimana<br />Topos Bekerja</>,
+    fullDesc: 'Jangan Biarkan Bisnis Anda Tertinggal! Mulai kelola bisnis Anda dengan lebih profesional dari kasir digital hingga manajemen gudang dalam satu aplikasi.',
     tags: ['Design System', 'Figma', 'React', 'Storybook'],
     category: 'Branding',
-    image: 'http://unggah.web.id/Yth-t-bHCqg_.jpg',
+    image: '/topos.jpg',
     gradient: 'from-transparent to-transparent',
-    liveUrl: '#',
+    liveUrl: 'https://toposdigital.com/',
     githubUrl: '#',
   },
   {
-    title: 'Vertex',
-    desc: 'E-commerce platform redesign that drove a 34% increase in conversion.',
-    fullDesc: 'A complete UX overhaul of an e-commerce platform serving 200K+ monthly visitors.',
+    title: 'Company Profile',
+    desc: 'Partner teknologi terpercaya untuk transformasi digital.',
+    fullDesc: 'Menghadirkan solusi Web Development, Mobile App, dan Cloud Infrastructure yang dirancang khusus untuk mendorong pertumbuhan bisnis Anda ke level berikutnya.',
     tags: ['UX Research', 'Prototyping', 'Next.js', 'Tailwind'],
     category: 'Web',
-    image: 'https://picsum.photos/seed/vertex/800/600',
+    image: '/hydracoredigitech.jpg',
     gradient: 'from-emerald-500 to-teal-500',
-    liveUrl: '#',
+    liveUrl: 'https://hydracoredigitech.com/',
     githubUrl: '#',
   },
   {
-    title: 'Flux',
-    desc: 'Real-time data dashboard for a logistics company.',
-    fullDesc: 'A real-time logistics dashboard handling millions of data points daily.',
+    title: 'RS Amanda',
+    desc: 'Sistem Informasi Manajemen Rumah Sakit (SIMRS) terpadu.',
+    fullDesc: 'Aplikasi pengelolaan data pasien, rekam medis, dan administrasi rumah sakit secara efisien, terpusat, dan terintegrasi.',
     tags: ['Dashboard', 'Data Viz', 'D3.js', 'TypeScript'],
     category: 'Data',
-    image: 'https://picsum.photos/seed/flux/800/600',
+    image: '/amanda.jpg',
     gradient: 'from-amber-500 to-orange-500',
-    liveUrl: '#',
+    liveUrl: 'https://simrs-mini-project.cloud/',
     githubUrl: '#',
   },
   {
-    title: 'Pulse',
-    desc: 'Health & wellness app with 100K+ downloads.',
-    fullDesc: 'A health and wellness mobile app that reached 100K downloads.',
-    tags: ['Mobile App', 'User Journey', 'Figma', 'Prototype'],
-    category: 'Mobile',
-    image: 'https://picsum.photos/seed/pulse/800/600',
+    title: 'landing page car auto garage',
+    desc: 'Website landing page untuk layanan rental mobil terpercaya.',
+    fullDesc: 'Desain dan pengembangan landing page untuk layanan rental mobil. Proyek ini berfokus pada tampilan UI/UX yang modern, profesional, serta responsif agar memudahkan pelanggan dalam melakukan pemesanan kendaraan.',
+    tags: ['Landing Page', 'Web Design', 'UI/UX', 'React'],
+    category: 'Web',
+    image: '/carauto.jpg',
     gradient: 'from-red-500 to-rose-500',
-    liveUrl: '#',
+    liveUrl: 'https://carautogarage.vercel.app/',
     githubUrl: '#',
   },
   {
@@ -198,12 +198,6 @@ function ProjectModal({ project, onClose }) {
                 </svg>
                 Live Preview
               </a>
-              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="btn-outline text-xs md:text-sm">
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
-                </svg>
-                Source Code
-              </a>
             </div>
           </div>
         </motion.div>
@@ -227,17 +221,18 @@ export default function Portfolio({ active }) {
         initial="hidden"
         animate={active ? 'visible' : 'hidden'}
       >
-        <motion.p variants={fadeUp} className="section-label">Portfolio</motion.p>
-        <motion.h2 variants={fadeUp} className="section-title mb-6 md:mb-8">
-          Selected works
-        </motion.h2>
+        <motion.p variants={fadeUp} className="section-label mb-2">my project</motion.p>
+        <motion.p variants={fadeUp} className="text-white/60 text-sm md:text-base max-w-2xl mb-6 md:mb-8">
+          Berikut adalah beberapa karya dan proyek unggulan yang telah saya kerjakan. Mulai dari aplikasi bisnis hingga eksplorasi desain, setiap proyek dibangun dengan dedikasi untuk menghadirkan solusi digital yang inovatif dan fungsional.
+        </motion.p>
+
 
         <motion.div variants={fadeUp} className="flex flex-wrap gap-1.5 md:gap-2 mb-5 md:mb-8">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`px-3 md:px-4 py-1.5 md:py-2 text-[11px] md:text-sm font-medium rounded-full transition-all duration-300 ${
+              className={`relative hover-running-border px-3 md:px-4 py-1.5 md:py-2 text-[11px] md:text-sm font-medium rounded-full transition-all duration-300 ${
                 filter === cat
                   ? 'bg-accent text-white shadow-[0_0_20px_rgba(108,99,255,0.3)]'
                   : 'bg-dark-200 text-white/40 hover:text-white border border-white/5'
@@ -253,29 +248,20 @@ export default function Portfolio({ active }) {
             <motion.div
               key={project.title}
               variants={cardFrom(i)}
+              className="group card overflow-hidden cursor-pointer relative"
               onClick={() => setSelectedProject(project)}
-              className="group card overflow-hidden cursor-pointer"
             >
               <div className={`h-36 md:h-48 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
-                <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" />
+                <img src={project.image} alt={project.title} className="w-full h-full object-cover object-left-top" />
                 <div className="absolute inset-0 bg-dark/30 group-hover:bg-dark/10 transition-colors duration-500" />
-                <div className="absolute top-3 left-3 md:top-4 md:left-4">
-                  <span className="text-white/80 font-display text-2xl md:text-3xl font-bold">0{i + 1}</span>
-                </div>
-                <div className="absolute bottom-3 right-3 md:bottom-4 md:right-4 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 md:translate-y-2 md:group-hover:translate-y-0 flex gap-2">
-                  <span className="px-2.5 py-1 md:px-3 md:py-1.5 rounded-full bg-white/20 backdrop-blur-sm text-white text-[10px] md:text-xs font-medium">View Details</span>
-                </div>
               </div>
               <div className="p-4 md:p-6">
                 <h3 className="font-display text-base md:text-lg font-semibold text-white group-hover:text-accent transition-colors mb-1.5 md:mb-2">{project.title}</h3>
                 <p className="text-white/40 text-xs md:text-sm leading-relaxed mb-3 md:mb-4 line-clamp-2">{project.desc}</p>
                 <div className="flex flex-wrap gap-1.5 md:gap-2">
-                  {project.tags.slice(0, 3).map((tag) => (
+                  {project.tags.map((tag) => (
                     <TagPill key={tag} tag={tag} />
                   ))}
-                  {project.tags.length > 3 && (
-                    <span className="px-2 md:px-2.5 py-0.5 md:py-1 text-[10px] md:text-xs font-medium bg-dark-300 rounded-md text-white/30">+{project.tags.length - 3}</span>
-                  )}
                 </div>
               </div>
             </motion.div>

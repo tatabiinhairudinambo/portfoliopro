@@ -137,10 +137,13 @@ export default function About({ active }) {
 
         <div className="grid md:grid-cols-2 gap-4 md:gap-12 lg:gap-16">
           <motion.div variants={leftAnim} className="space-y-3 md:space-y-5">
-            <motion.h2 variants={fadeUp} className="section-title mb-4 md:mb-8">
-              Desain & kode,<br />
-              <span className="text-gradient">seimbang sempurna.</span>
-            </motion.h2>
+            <motion.div variants={fadeUp} className="mb-4 md:mb-8 flex flex-col items-start w-full">
+              <h2 className="section-title mb-2 md:mb-3">
+                Desain & kode,<br />
+                <span className="text-gradient">seimbang sempurna.</span>
+              </h2>
+              <div className="h-[2px] w-[80%] sm:w-80 md:w-[400px] max-w-full bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] rounded-full opacity-80" style={{ animation: 'gradientRotate 2s linear infinite' }}></div>
+            </motion.div>
             <p className="text-white/60 text-sm md:text-lg leading-relaxed">
               Saya Tatabiin Hairudin Ambo bersama <strong>Team Hydra Core Digitech</strong>, berfokus sebagai pengembang perangkat lunak dan desain digital. Kami memiliki spesialisasi dalam merancang aplikasi web yang tangguh, sistem informasi yang kompleks, serta perangkat lunak kustom yang menjembatani desain inovatif dengan arsitektur teknis yang kokoh.
             </p>
@@ -212,20 +215,23 @@ export default function About({ active }) {
 
           <motion.div variants={rightAnim} className="flex flex-col h-full mt-4 md:mt-0">
 
-            <motion.h3 variants={fadeUp} className="font-display text-2xl md:text-3xl font-bold text-white text-center mb-4 md:mb-6">
-              Team <span className="text-gradient">Hydra Core Digitech</span>
-            </motion.h3>
+            <motion.div variants={fadeUp} className="flex flex-col items-center mb-4 md:mb-6">
+              <h3 className="font-display text-2xl md:text-3xl font-bold text-white text-center">
+                Team <span className="text-gradient">Hydra Core Digitech</span>
+              </h3>
+              <div className="h-[2px] w-32 mt-3 bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] rounded-full opacity-80" style={{ animation: 'gradientRotate 2s linear infinite' }}></div>
+            </motion.div>
 
             {/* Media Container */}
             <div className="w-full aspect-[4/3] rounded-2xl md:rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl relative group">
-              <img 
+              <img
                 key={currentSlide}
                 src={slides[currentSlide]}
-                alt="About Me Slide" 
+                alt="About Me Slide"
                 className={`w-full h-full object-contain ${slideDirection === 'right' ? 'animate-[slideInRight_0.5s_ease-out]' : 'animate-[slideInLeft_0.5s_ease-out]'}`}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent pointer-events-none z-0"></div>
-              
+
               {/* Carousel Navigation Arrows Inside Image */}
               <div className="absolute inset-y-0 left-0 right-0 flex items-center justify-between px-2 md:px-4 z-10 pointer-events-none">
                 <button onClick={prevSlide} className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 bg-dark/40 backdrop-blur-md flex items-center justify-center text-white hover:border-accent hover:bg-accent/40 transition-all pointer-events-auto">
@@ -242,7 +248,7 @@ export default function About({ active }) {
             </div>
 
             {/* Website Link */}
-            <div className="mt-6 flex justify-center">
+            <div className="mt-6 flex flex-col items-center">
               <a 
                 href="https://hydracoredigitech.com/" 
                 target="_blank" 
@@ -254,6 +260,7 @@ export default function About({ active }) {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </a>
+              <div className="h-[2px] w-40 mt-4 bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] rounded-full opacity-80" style={{ animation: 'gradientRotate 2s linear infinite' }}></div>
             </div>
 
             {/* Short Bio / Description */}

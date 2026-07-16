@@ -120,7 +120,7 @@ export default function Testimonials({ active }) {
               key={i}
               variants={itemEntrance}
               onClick={() => openAlbum(i)}
-              className={`relative rounded-2xl overflow-hidden group ${album.className} shadow-xl border border-white/5 cursor-pointer`}
+              className={`card overflow-hidden group ${album.className} cursor-pointer`}
             >
               <div 
                 className="absolute inset-0 bg-cover bg-center"

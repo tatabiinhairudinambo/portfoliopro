@@ -57,7 +57,7 @@ export default function Cursor() {
         translateY: '-50%',
       }}
     >
-      <div className="w-full h-full rounded-full border border-accent/50 bg-accent/10 backdrop-blur-sm transition-all duration-200" />
+      <div className="w-full h-full rounded-full relative running-border transition-all duration-200" />
     </motion.div>
   )
 }

@@ -59,29 +59,68 @@
   }
 
   @keyframes slideInLeft {
-    from { 
+    from {
       opacity: 0;
       transform: translateX(-50px);
     }
-    to { 
+
+    to {
       opacity: 1;
       transform: translateX(0);
     }
   }
 
   @keyframes slideInRight {
-    from { 
+    from {
       opacity: 0;
       transform: translateX(50px);
     }
-    to { 
+
+    to {
       opacity: 1;
       transform: translateX(0);
     }
   }
 
+  @keyframes gradientRotate {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 200% 0%; }
+  }
+
+  @keyframes gradientRotateVertical {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 0% 200%; }
+  }
+
   .card {
-    @apply bg-transparent border border-white/5 rounded-2xl transition-all duration-300 hover:border-accent/30 hover:shadow-[0_0_40px_rgba(108,99,255,0.1)];
+    @apply relative bg-transparent border border-white/5 rounded-2xl transition-all duration-300 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)];
+  }
+
+  .card::after,
+  .hover-running-border::after,
+  .running-border::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(90deg, transparent, #3B82F6, #60A5FA, transparent);
+    background-size: 200% 100%;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 50;
+  }
+
+  .card:hover::after,
+  .hover-running-border:hover::after,
+  .hover-running-border:focus-within::after,
+  .running-border::after {
+    opacity: 1;
+    animation: gradientRotate 2s linear infinite;
   }
 
   .text-gradient {

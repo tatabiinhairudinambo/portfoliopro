@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useHorizontalScroll } from './hooks/useHorizontalScroll'
 import Hero from './components/Hero'
@@ -12,6 +13,15 @@ import ScrollIndicator from './components/ScrollIndicator'
 import BackToTop from './components/BackToTop'
 import Cursor from './components/Cursor'
 
+import Login from './pages/admin/Login'
+import ProtectedRoute from './components/admin/ProtectedRoute'
+import AdminLayout from './pages/admin/AdminLayout'
+import ProjectsList from './pages/admin/ProjectsList'
+import ProjectForm from './pages/admin/ProjectForm'
+import AlbumsList from './pages/admin/AlbumsList'
+import AlbumForm from './pages/admin/AlbumForm'
+import SiteSettings from './pages/admin/SiteSettings'
+
 const mobileSectionAnims = [
   { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 0.5 } } },
   { hidden: { opacity: 0, x: -60 }, visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } } },
@@ -22,7 +32,7 @@ const mobileSectionAnims = [
   { hidden: { opacity: 0, y: 60 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } } },
 ]
 
-function App() {
+function PortfolioApp() {
   const { containerRef, activeIndex, scrollTo, isMobile, sectionIds } = useHorizontalScroll()
   const [visibleSections, setVisibleSections] = useState({})
 
@@ -65,9 +75,9 @@ function App() {
         >
           <Hero scrollTo={scrollTo} />
           <About active={visibleSections['about']} />
-          <Skills active={visibleSections['skills']} />
-          <Portfolio active={visibleSections['portfolio']} />
           <Experience active={visibleSections['experience']} />
+          <Portfolio active={visibleSections['portfolio']} />
+          <Skills active={visibleSections['skills']} />
           <Testimonials active={visibleSections['testimonials']} />
           <Contact active={visibleSections['contact']} />
         </div>
@@ -80,9 +90,9 @@ function MobileLayout({ sectionIds, scrollTo }) {
   const sections = [
     { id: 'hero', Comp: Hero, props: { scrollTo } },
     { id: 'about', Comp: About },
-    { id: 'skills', Comp: Skills },
-    { id: 'portfolio', Comp: Portfolio },
     { id: 'experience', Comp: Experience },
+    { id: 'portfolio', Comp: Portfolio },
+    { id: 'skills', Comp: Skills },
     { id: 'testimonials', Comp: Testimonials },
     { id: 'contact', Comp: Contact },
   ]
@@ -106,4 +116,28 @@ function MobileLayout({ sectionIds, scrollTo }) {
   )
 }
 
-export default App
+export default function App() {
+  return (
+    <Routes>
+      {/* Public Portfolio Route */}
+      <Route path="/" element={<PortfolioApp />} />
+
+      {/* Admin Login Route */}
+      <Route path="/admin/login" element={<Login />} />
+
+      {/* Protected Admin Routes */}
+      <Route path="/admin" element={<ProtectedRoute />}>
+        <Route element={<AdminLayout />}>
+          <Route index element={<div className="text-white text-2xl font-bold">Welcome to Admin Dashboard</div>} />
+          <Route path="projects" element={<ProjectsList />} />
+          <Route path="projects/new" element={<ProjectForm />} />
+          <Route path="projects/:id" element={<ProjectForm />} />
+          <Route path="albums" element={<AlbumsList />} />
+          <Route path="albums/new" element={<AlbumForm />} />
+          <Route path="albums/:id" element={<AlbumForm />} />
+          <Route path="settings" element={<SiteSettings />} />
+        </Route>
+      </Route>
+    </Routes>
+  )
+}

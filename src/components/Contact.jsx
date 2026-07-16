@@ -122,12 +122,20 @@ export default function Contact({ active }) {
           <motion.div variants={formReveal} className="md:col-span-3" style={{ transformStyle: 'preserve-3d' }}>
             <form onSubmit={(e) => e.preventDefault()} className="space-y-3 md:space-y-5">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
-                <input type="text" placeholder="Your Name" className={inputClass} />
-                <input type="email" placeholder="Your Email" className={inputClass} />
+                <div className="relative hover-running-border rounded-xl">
+                  <input type="text" placeholder="Your Name" className={inputClass} />
+                </div>
+                <div className="relative hover-running-border rounded-xl">
+                  <input type="email" placeholder="Your Email" className={inputClass} />
+                </div>
               </div>
-              <input type="text" placeholder="Subject" className={inputClass} />
-              <textarea rows={4} placeholder="Your Message" className={`${inputClass} resize-none`} />
-              <button type="submit" className="btn-primary w-full justify-center text-sm">
+              <div className="relative hover-running-border rounded-xl">
+                <input type="text" placeholder="Subject" className={inputClass} />
+              </div>
+              <div className="relative hover-running-border rounded-xl">
+                <textarea rows={4} placeholder="Your Message" className={`${inputClass} resize-none`} />
+              </div>
+              <button type="submit" className="relative hover-running-border btn-primary w-full justify-center text-sm rounded-xl">
                 Kirim Pesan
               </button>
             </form>

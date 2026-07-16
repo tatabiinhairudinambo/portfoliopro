@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 
-const SECTION_IDS = ['hero', 'about', 'skills', 'portfolio', 'experience', 'testimonials', 'contact']
+const SECTION_IDS = ['hero', 'about', 'experience', 'portfolio', 'skills', 'testimonials', 'contact']
 
 export function useHorizontalScroll() {
   const containerRef = useRef(null)
