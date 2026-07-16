@@ -44,7 +44,7 @@ const projects = [
   {
     title: 'Topos Digital',
     desc: 'Comprehensive design system for a fintech startup serving 50K+ users.',
-    fullDesc: 'A complete design system overhaul for a rapidly growing fintech platform.',
+    fullDesc: 'Kelola penjualan, stok gudang, dan laporan keuangan dalam satu aplikasi. Tanpa ribet, langsung pakai.',
     tags: ['Design System', 'Figma', 'React', 'Storybook'],
     category: 'Branding',
     image: 'http://unggah.web.id/Yth-t-bHCqg_.jpg',
