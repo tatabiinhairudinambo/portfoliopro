@@ -169,10 +169,10 @@ function ProjectModal({ project, onClose }) {
           exit={{ opacity: 0, scale: 0.9, y: 40, rotateX: -10 }}
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
           onClick={(e) => e.stopPropagation()}
-          className="max-w-2xl w-full max-h-[85vh] md:max-h-[90vh] overflow-y-auto bg-dark border-t md:border border-white/10 md:rounded-3xl rounded-t-3xl"
+          className="max-w-2xl w-full max-h-[80vh] md:max-h-[90vh] overflow-y-auto bg-dark border-t md:border border-white/10 md:rounded-3xl rounded-t-3xl"
           style={{ scrollbarWidth: 'none' }}
         >
-          <div className={`h-44 md:h-72 bg-gradient-to-br ${project.gradient} relative`}>
+          <div className={`h-40 md:h-72 bg-gradient-to-br ${project.gradient} relative`}>
             <img src={project.image} alt={project.title} className="w-full h-full object-cover mix-blend-overlay opacity-60" />
             <div className="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent" />
             <button onClick={onClose} className="absolute top-3 right-3 md:top-4 md:right-4 w-9 h-9 md:w-10 md:h-10 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center hover:bg-black/60 transition-colors">
@@ -180,18 +180,18 @@ function ProjectModal({ project, onClose }) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
-            <div className="absolute bottom-3 left-5 md:bottom-4 md:left-6">
-              <span className="font-display text-3xl md:text-4xl font-bold text-white">{project.title}</span>
+            <div className="absolute bottom-3 left-4 md:bottom-4 md:left-6">
+              <span className="font-display text-2xl md:text-4xl font-bold text-white">{project.title}</span>
             </div>
           </div>
-          <div className="p-5 md:p-8 space-y-4 md:space-y-5">
-            <div className="flex flex-wrap gap-1.5 md:gap-2">
+          <div className="p-4 md:p-8 space-y-3 md:space-y-5">
+            <div className="flex flex-wrap gap-1 md:gap-2">
               {project.tags.map((tag) => (
                 <TagPill key={tag} tag={tag} />
               ))}
             </div>
-            <p className="text-white/60 text-sm md:text-base leading-relaxed">{project.fullDesc}</p>
-            <div className="flex flex-wrap gap-2.5 md:gap-3 pt-2">
+            <p className="text-white/60 text-xs md:text-base leading-relaxed">{project.fullDesc}</p>
+            <div className="flex flex-wrap gap-2 md:gap-3 pt-1 md:pt-2">
               <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="btn-primary text-xs md:text-sm">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -262,8 +262,8 @@ export default function Portfolio({ active }) {
                 <div className="absolute top-3 left-3 md:top-4 md:left-4">
                   <span className="text-white/80 font-display text-2xl md:text-3xl font-bold">0{i + 1}</span>
                 </div>
-                <div className="absolute bottom-3 right-3 md:bottom-4 md:right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 flex gap-2">
-                  <span className="px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs font-medium">View Details</span>
+                <div className="absolute bottom-3 right-3 md:bottom-4 md:right-4 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 md:translate-y-2 md:group-hover:translate-y-0 flex gap-2">
+                  <span className="px-2.5 py-1 md:px-3 md:py-1.5 rounded-full bg-white/20 backdrop-blur-sm text-white text-[10px] md:text-xs font-medium">View Details</span>
                 </div>
               </div>
               <div className="p-4 md:p-6">
