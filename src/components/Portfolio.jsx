@@ -42,7 +42,7 @@ function TagPill({ tag }) {
 
 const projects = [
   {
-    title: 'Lumina',
+    title: 'Topos Digital',
     desc: 'Comprehensive design system for a fintech startup serving 50K+ users.',
     fullDesc: 'A complete design system overhaul for a rapidly growing fintech platform.',
     tags: ['Design System', 'Figma', 'React', 'Storybook'],
