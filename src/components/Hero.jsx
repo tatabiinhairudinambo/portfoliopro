@@ -84,7 +84,7 @@ export default function Hero({ scrollTo }) {
           variants={slideLeft}
           initial="hidden"
           animate="visible"
-          className="font-display font-black text-[18vw] md:text-[18vw] leading-none tracking-tighter uppercase whitespace-nowrap text-center w-full"
+          className="font-display font-black text-[18vw] md:text-[18vw] leading-none tracking-tighter uppercase whitespace-nowrap text-center w-full -translate-y-16 md:-translate-y-24"
         >
           <span className="text-white/5">PORT</span><span className="text-blue-500/10">FOLIO</span>
         </motion.h1>
@@ -208,7 +208,7 @@ export default function Hero({ scrollTo }) {
           variants={slideLeft}
           initial="hidden"
           animate="visible"
-          className="font-display font-black text-[18vw] md:text-[18vw] leading-none tracking-tighter uppercase whitespace-nowrap text-center w-full"
+          className="font-display font-black text-[18vw] md:text-[18vw] leading-none tracking-tighter uppercase whitespace-nowrap text-center w-full -translate-y-16 md:-translate-y-24"
           style={{ color: 'transparent' }}
         >
           <span style={{ WebkitTextStroke: '2px rgba(255,255,255,0.2)' }}>PORT</span><span style={{ WebkitTextStroke: '2px rgba(59,130,246,0.6)' }}>FOLIO</span>
