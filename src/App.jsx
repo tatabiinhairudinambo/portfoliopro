@@ -13,14 +13,7 @@ import ScrollIndicator from './components/ScrollIndicator'
 import BackToTop from './components/BackToTop'
 import Cursor from './components/Cursor'
 
-import Login from './pages/admin/Login'
-import ProtectedRoute from './components/admin/ProtectedRoute'
-import AdminLayout from './pages/admin/AdminLayout'
-import ProjectsList from './pages/admin/ProjectsList'
-import ProjectForm from './pages/admin/ProjectForm'
-import AlbumsList from './pages/admin/AlbumsList'
-import AlbumForm from './pages/admin/AlbumForm'
-import SiteSettings from './pages/admin/SiteSettings'
+
 
 const mobileSectionAnims = [
   { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 0.5 } } },
@@ -122,22 +115,6 @@ export default function App() {
       {/* Public Portfolio Route */}
       <Route path="/" element={<PortfolioApp />} />
 
-      {/* Admin Login Route */}
-      <Route path="/admin/login" element={<Login />} />
-
-      {/* Protected Admin Routes */}
-      <Route path="/admin" element={<ProtectedRoute />}>
-        <Route element={<AdminLayout />}>
-          <Route index element={<div className="text-white text-2xl font-bold">Welcome to Admin Dashboard</div>} />
-          <Route path="projects" element={<ProjectsList />} />
-          <Route path="projects/new" element={<ProjectForm />} />
-          <Route path="projects/:id" element={<ProjectForm />} />
-          <Route path="albums" element={<AlbumsList />} />
-          <Route path="albums/new" element={<AlbumForm />} />
-          <Route path="albums/:id" element={<AlbumForm />} />
-          <Route path="settings" element={<SiteSettings />} />
-        </Route>
-      </Route>
     </Routes>
   )
 }

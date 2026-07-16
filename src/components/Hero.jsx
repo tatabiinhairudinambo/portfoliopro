@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { supabase } from '../supabaseClient'
+
 
 const stagger = {
   hidden: { opacity: 0 },
@@ -62,24 +62,7 @@ const photoReveal = {
 }
 
 export default function Hero({ scrollTo }) {
-  const [content, setContent] = useState(null)
 
-  useEffect(() => {
-    const fetchContent = async () => {
-      const { data, error } = await supabase.from('site_content').select('*').eq('section', 'hero')
-      if (error || !data) return
-
-      const contentMap = data.reduce((acc, curr) => {
-        acc[curr.key] = curr.value
-        return acc
-      }, {})
-
-      setContent(contentMap)
-    }
-    fetchContent()
-  }, [])
-
-  const getValue = (key, fallback) => content?.[key] || fallback
 
   return (
     <section id="hero" className="section-panel relative overflow-hidden bg-dark flex items-center justify-center">
@@ -105,7 +88,7 @@ export default function Hero({ scrollTo }) {
           animate="visible"
           className="font-display font-black text-[18vw] md:text-[18vw] leading-none tracking-tighter uppercase whitespace-nowrap text-center w-full"
         >
-          <span className="text-white/5">{getValue('hero_title_1', 'PORT')}</span><span className="text-blue-500/10">{getValue('hero_title_2', 'FOLIO')}</span>
+          <span className="text-white/5">PORT</span><span className="text-blue-500/10">FOLIO</span>
         </motion.h1>
       </div>
 
@@ -146,8 +129,8 @@ export default function Hero({ scrollTo }) {
                 {/* FRONT FACE */}
                 <div className="absolute inset-0 bg-dark rounded-[1.25rem] md:rounded-[1.5rem] shadow-[0_0_40px_rgba(0,0,0,0.5)] overflow-hidden border border-accent/40" style={{ backfaceVisibility: 'hidden' }}>
                   <img
-                    src={getValue('hero_profile_img', '/profile.jpg')}
-                    alt={getValue('hero_name', 'Tatabiin Hairudin Ambo')}
+                    src="/profile.jpg"
+                    alt="Tatabiin Hairudin Ambo"
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                   />
                   <div className="absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-dark to-transparent"></div>
@@ -179,7 +162,7 @@ export default function Hero({ scrollTo }) {
         {/* Title */}
         <div className="flex flex-col items-center mt-3 md:mt-6 pointer-events-auto px-4">
           <h2 className="font-body text-sm sm:text-lg md:text-2xl font-light tracking-wide text-center">
-            <span className="text-white/50">{getValue('hero_subtitle_1', 'Freelance Full')}</span> <span className="text-accent">{getValue('hero_subtitle_2', 'Stack Developer.')}</span>
+            <span className="text-white/50">Freelance Full</span> <span className="text-accent">Stack Developer.</span>
           </h2>
           <div className="h-[2px] w-64 sm:w-80 md:w-96 mt-3 bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] rounded-full opacity-80" style={{ animation: 'gradientRotate 2s linear infinite' }}></div>
         </div>
