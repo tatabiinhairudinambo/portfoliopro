@@ -167,8 +167,8 @@ export default function Contact({ active }) {
 
             <div className="card p-5 md:p-8">
               <p className="text-white/30 text-xs md:text-sm leading-relaxed">
-                Currently open to freelance projects and full-time opportunities. 
-                I typically respond within 24 hours.
+                Terbuka untuk proyek freelance dan peluang full-time.
+                Saya biasanya merespon dalam 24 jam.
               </p>
             </div>
           </motion.div>
