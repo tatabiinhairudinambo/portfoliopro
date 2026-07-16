@@ -28,7 +28,10 @@ export default function Navbar({ activeIndex, scrollTo, isMobile }) {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled || !isMobile ? 'glass' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 md:px-12 lg:px-16">
-        <div className="flex items-center justify-end h-14 md:h-20">
+        <div className="flex items-center justify-between h-14 md:h-20">
+          <a href="#hero" onClick={(e) => { e.preventDefault(); scrollTo(0) }} className="font-display font-bold text-sm md:text-base text-white hover:text-accent transition-colors tracking-wide">
+            Tatabiin Hairudin Ambo
+          </a>
 
           {isMobile ? (
             <>
