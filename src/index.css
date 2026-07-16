@@ -88,10 +88,11 @@
     width: 100%;
     height: auto;
     min-height: 100svh;
-    overflow-y: visible;
+    overflow-y: auto;
   }
 
   .container-custom {
+    height: auto;
     padding-left: 1.25rem;
     padding-right: 1.25rem;
     padding-top: 4.5rem;

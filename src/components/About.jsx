@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 const stagger = {
@@ -35,6 +36,24 @@ const fromRight = {
     skewX: 0,
     filter: 'blur(0px)',
     transition: { duration: 0.9, ease: [0.25, 0.1, 0.25, 1] },
+  },
+}
+
+const mobileFromLeft = {
+  hidden: { opacity: 0, x: -20, transition: { duration: 0.5 } },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.7, ease: [0.25, 0.1, 0.25, 1] },
+  },
+}
+
+const mobileFromRight = {
+  hidden: { opacity: 0, x: 20, transition: { duration: 0.5 } },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.7, ease: [0.25, 0.1, 0.25, 1] },
   },
 }
 
@@ -77,6 +96,18 @@ const row2Tags = [
 ]
 
 export default function About({ active }) {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
+
+  const leftAnim = isMobile ? mobileFromLeft : fromLeft
+  const rightAnim = isMobile ? mobileFromRight : fromRight
+
   return (
     <section id="about" className="section-panel">
       <motion.div
@@ -93,7 +124,7 @@ export default function About({ active }) {
         </motion.h2>
 
         <div className="grid md:grid-cols-2 gap-6 md:gap-12 lg:gap-16">
-          <motion.div variants={fromLeft} className="space-y-4 md:space-y-5">
+          <motion.div variants={leftAnim} className="space-y-4 md:space-y-5">
             <p className="text-white/60 text-sm md:text-lg leading-relaxed">
               With over 6 years of experience in digital design and development, 
               I specialize in creating user-centric interfaces that balance aesthetic 
@@ -105,15 +136,25 @@ export default function About({ active }) {
               helping teams translate their vision into compelling digital products 
               that users love.
             </p>
-            <div className="pt-2 space-y-2 overflow-hidden">
+            <div className="md:hidden pt-2">
+              <div className="flex flex-wrap gap-1.5">
+                {[...row1Tags, ...row2Tags].map((tag, i) => (
+                  <span key={`mob-${i}`} className={`inline-flex items-center gap-1 px-2 py-0.5 text-[9px] font-medium border rounded-full whitespace-nowrap ${tag.color}`}>
+                    {tag.icon}
+                    {tag.label}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="hidden md:block pt-2 space-y-2 overflow-hidden">
               <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
                 <motion.div
-                  className="flex gap-2 md:gap-3 w-max"
+                  className="flex gap-3 w-max"
                   animate={{ x: ['0%', '-50%'] }}
                   transition={{ repeat: Infinity, duration: 18, ease: 'linear' }}
                 >
                   {[...row1Tags, ...row1Tags].map((tag, i) => (
-                    <span key={`r1-${i}`} className={`inline-flex items-center gap-1 md:gap-1.5 px-2.5 md:px-4 py-1 md:py-2 text-[10px] md:text-xs font-medium border rounded-full whitespace-nowrap ${tag.color}`}>
+                    <span key={`r1-${i}`} className={`inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium border rounded-full whitespace-nowrap ${tag.color}`}>
                       {tag.icon}
                       {tag.label}
                     </span>
@@ -122,12 +163,12 @@ export default function About({ active }) {
               </div>
               <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
                 <motion.div
-                  className="flex gap-2 md:gap-3 w-max"
+                  className="flex gap-3 w-max"
                   animate={{ x: ['-50%', '0%'] }}
                   transition={{ repeat: Infinity, duration: 20, ease: 'linear' }}
                 >
                   {[...row2Tags, ...row2Tags].map((tag, i) => (
-                    <span key={`r2-${i}`} className={`inline-flex items-center gap-1 md:gap-1.5 px-2.5 md:px-4 py-1 md:py-2 text-[10px] md:text-xs font-medium border rounded-full whitespace-nowrap ${tag.color}`}>
+                    <span key={`r2-${i}`} className={`inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium border rounded-full whitespace-nowrap ${tag.color}`}>
                       {tag.icon}
                       {tag.label}
                     </span>
@@ -143,7 +184,7 @@ export default function About({ active }) {
             </a>
           </motion.div>
 
-          <motion.div variants={fromRight} className="grid grid-cols-2 gap-2.5 md:gap-4">
+          <motion.div variants={rightAnim} className="grid grid-cols-2 gap-2.5 md:gap-4">
             {stats.map((stat, i) => (
               <motion.div
                 key={i}
