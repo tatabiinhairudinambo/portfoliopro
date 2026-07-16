@@ -176,10 +176,10 @@ export default function Hero({ scrollTo }) {
             style={{ width: "fit-content" }}
           >
             <p className="text-white/90 font-body text-[11px] sm:text-sm md:text-base font-light tracking-wide pr-10">
-              Saya membantu bisnis, UMKM, startup...
+              Saya membantu bisnis, UMKM, dan startup untuk bertumbuh di era digital dengan solusi website yang modern, interaktif, dan berkinerja tinggi. Mari wujudkan ide cemerlang Anda menjadi nyata! ✨
             </p>
             <p className="text-white/90 font-body text-[11px] sm:text-sm md:text-base font-light tracking-wide pr-10">
-              Saya membantu bisnis, UMKM, startup...
+              Saya membantu bisnis, UMKM, dan startup untuk bertumbuh di era digital dengan solusi website yang modern, interaktif, dan berkinerja tinggi. Mari wujudkan ide cemerlang Anda menjadi nyata! ✨
             </p>
           </motion.div>
         </div>
