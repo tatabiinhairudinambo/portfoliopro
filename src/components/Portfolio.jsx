@@ -214,14 +214,23 @@ export default function Portfolio({ active }) {
     : projects.filter((p) => p.category === filter)
 
   return (
-    <section id="portfolio" className="section-panel">
+    <motion.section id="portfolio" className="section-panel"
+      initial={{ opacity: 0, scale: 0.9, y: 40 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      viewport={{ amount: 0.2 }}
+      transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+    >
       <motion.div
         className="container-custom flex flex-col justify-center"
         variants={stagger}
         initial="hidden"
-        animate={active ? 'visible' : 'hidden'}
+        whileInView="visible"
+        viewport={{ amount: 0.1 }}
       >
-        <motion.p variants={fadeUp} className="section-label mb-2">my project</motion.p>
+        <motion.div variants={fadeUp} className="flex flex-col w-full mb-6 md:mb-8">
+          <p className="section-label !mb-2">my project</p>
+          <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] opacity-80 rounded-full" style={{ animation: 'gradientRotate 2s linear infinite' }}></div>
+        </motion.div>
         <motion.p variants={fadeUp} className="text-white/60 text-sm md:text-base max-w-2xl mb-6 md:mb-8">
           Berikut adalah beberapa karya dan proyek unggulan yang telah saya kerjakan. Mulai dari aplikasi bisnis hingga eksplorasi desain, setiap proyek dibangun dengan dedikasi untuk menghadirkan solusi digital yang inovatif dan fungsional.
         </motion.p>
@@ -274,6 +283,6 @@ export default function Portfolio({ active }) {
           <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
         )}
       </AnimatePresence>
-    </section>
+    </motion.section>
   )
 }

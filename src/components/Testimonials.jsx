@@ -92,16 +92,25 @@ export default function Testimonials({ active }) {
   }
 
   return (
-    <section id="testimonials" className="section-panel">
+    <motion.section id="testimonials" className="section-panel"
+      initial={{ opacity: 0, scale: 0.9, y: 40 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      viewport={{ amount: 0.2 }}
+      transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+    >
       <motion.div
         className="container-custom flex flex-col justify-center h-full py-12 md:py-20"
         variants={stagger}
         initial="hidden"
         animate={active ? 'visible' : 'hidden'}
       >
+        <motion.div variants={fadeUp} className="flex flex-col w-full mb-6 md:mb-8">
+          <p className="section-label !mb-2">Brand Gallery</p>
+          <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] opacity-80 rounded-full" style={{ animation: 'gradientRotate 2s linear infinite' }}></div>
+        </motion.div>
+        
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-10 gap-4">
           <div>
-            <motion.p variants={fadeUp} className="section-label !mb-3">Brand Gallery</motion.p>
             <motion.h2 variants={fadeUp} className="section-title">
               Momen & Karya
             </motion.h2>
@@ -129,19 +138,16 @@ export default function Testimonials({ active }) {
               <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
               <div className="absolute inset-0 flex flex-col justify-center items-center p-5 md:p-6 lg:p-8">
                 {album.type === 'video' && (
-                  <div className="mb-4 w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white group-hover:bg-accent group-hover:border-accent group-hover:shadow-[0_0_30px_rgba(108,99,255,0.6)] transition-all duration-500 cursor-pointer">
+                  <div className="mb-4 w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/20 border border-white/20 flex items-center justify-center text-white group-hover:bg-accent group-hover:border-accent group-hover:shadow-[0_0_30px_rgba(108,99,255,0.6)] transition-all duration-500 cursor-pointer">
                     <svg className="w-6 h-6 md:w-7 md:h-7 ml-1" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M4 4l12 6-12 6z" />
                     </svg>
                   </div>
                 )}
                 <div className="flex flex-col items-center w-full text-center">
-                  <div className="inline-flex items-center gap-2 bg-accent/30 backdrop-blur-md border border-accent/40 text-white font-medium px-5 py-2.5 rounded-full shadow-[0_4_15px_rgba(108,99,255,0.2)] mb-1">
+                  <h3 className="text-white font-semibold text-base md:text-lg drop-shadow-md mb-1">
                     {album.title}
-                    <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </div>
+                  </h3>
                   <p className="text-white/90 font-medium text-sm mt-1 drop-shadow-md">{album.media.length} items</p>
                 </div>
               </div>
@@ -233,6 +239,6 @@ export default function Testimonials({ active }) {
           </motion.div>
         )}
       </AnimatePresence>
-    </section>
+    </motion.section>
   )
 }

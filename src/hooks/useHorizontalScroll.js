@@ -50,12 +50,35 @@ export function useHorizontalScroll() {
     if (!container) return
 
     const handleWheel = (e) => {
+      let target = e.target;
+      let canScrollY = false;
+
+      while (target && target !== container) {
+        const style = window.getComputedStyle(target);
+        if (style.overflowY === 'auto' || style.overflowY === 'scroll') {
+          const isAtTop = target.scrollTop <= 0;
+          const isAtBottom = target.scrollTop >= target.scrollHeight - target.clientHeight - 1;
+          
+          if ((e.deltaY < 0 && !isAtTop) || (e.deltaY > 0 && !isAtBottom)) {
+            canScrollY = true;
+            break;
+          }
+        }
+        target = target.parentElement;
+      }
+
+      if (canScrollY) {
+        // Biarkan browser melakukan scroll vertikal secara default
+        return;
+      }
+
       const delta = Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX
       if (Math.abs(delta) < 5) return
       e.preventDefault()
       container.scrollBy({ left: delta, behavior: 'auto' })
     }
 
+    // Gunakan passive: false agar kita bisa memanggil e.preventDefault()
     container.addEventListener('wheel', handleWheel, { passive: false })
     return () => container.removeEventListener('wheel', handleWheel)
   }, [isMobile])

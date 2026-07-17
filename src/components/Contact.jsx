@@ -104,7 +104,12 @@ const inputClass = "w-full px-4 md:px-5 py-3 md:py-4 bg-dark-200 border border-w
 
 export default function Contact({ active }) {
   return (
-    <section id="contact" className="section-panel">
+    <motion.section id="contact" className="section-panel"
+      initial={{ opacity: 0, scale: 0.9, y: 40 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      viewport={{ amount: 0.2 }}
+      transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+    >
       <motion.div
         className="container-custom flex flex-col justify-center"
         variants={stagger}
@@ -112,7 +117,10 @@ export default function Contact({ active }) {
         animate={active ? 'visible' : 'hidden'}
         style={{ perspective: '1200px' }}
       >
-        <motion.p variants={fadeUp} className="section-label">Contact</motion.p>
+        <motion.div variants={fadeUp} className="flex flex-col w-full mb-6 md:mb-12">
+          <p className="section-label !mb-2">Contact</p>
+          <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] opacity-80 rounded-full" style={{ animation: 'gradientRotate 2s linear infinite' }}></div>
+        </motion.div>
         <motion.h2 variants={fadeUp} className="section-title mb-6 md:mb-12">
           Let's create{' '}
           <span className="text-gradient">something great</span>
@@ -184,12 +192,12 @@ export default function Contact({ active }) {
 
         <motion.div
           variants={fadeUp}
-          className="mt-8 md:mt-12 pt-5 md:pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 md:gap-4 text-white/20 text-[11px] md:text-xs"
+          className="relative mt-8 md:mt-12 pt-5 md:pt-6 pb-4 border-t border-white/5 flex flex-col items-center justify-center text-white/20 text-[11px] md:text-xs"
         >
           <p>&copy; 2025 Developer Tatabiin Hairudin Ambo. All rights reserved.</p>
-          <p>Designed & built with passion</p>
+          <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] opacity-80" style={{ animation: 'gradientRotate 2s linear infinite' }}></div>
         </motion.div>
       </motion.div>
-    </section>
+    </motion.section>
   )
 }

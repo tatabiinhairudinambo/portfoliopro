@@ -8,7 +8,7 @@ const experience = [
     company: 'Design Studio Co.',
     desc: 'Memimpin strategi desain untuk klien perusahaan (enterprise). Mengelola tim beranggotakan 4 desainer dan menetapkan standar sistem desain.',
     type: 'work',
-    image: 'https://picsum.photos/seed/cert1/800/600',
+    image: '/hydracoredigitech.jpg',
     details: 'Sertifikat Kepemimpinan & Manajemen Desain'
   },
   {
@@ -21,22 +21,22 @@ const experience = [
     details: 'Penghargaan UI/UX Terbaik 2024'
   },
   {
-    period: '2018-2026',
-    role: 'Desainer Junior',
-    company: 'CreativeLab Agency',
-    desc: 'Membangun situs web dan identitas merek untuk lebih dari 20 klien. Menguasai dasar-dasar pemikiran desain (design thinking) dan pembuatan prototipe cepat.',
-    type: 'work',
-    image: 'https://picsum.photos/seed/cert3/800/600',
-    details: 'Sertifikat Dasar-Dasar Desain Interaksi'
-  },
-  {
     period: '2023- Now',
     role: 'Universitas Ipwija',
     company: 'Sistem Informasi - Freelance',
     desc: 'Saat ini masih menempuh perkuliahan. Mengkhususkan diri dalam desain interaksi dan seni media baru.',
     type: 'education',
-    image: 'https://picsum.photos/seed/cert4/800/600',
+    image: '/ipwija.jpg.jpg',
     details: 'Kartu Tanda Mahasiswa (KTM) Aktif'
+  },
+  {
+    period: '2018-2026',
+    role: 'Fullstack Developer',
+    company: 'CreativeLab Agency',
+    desc: 'Membangun dan merancang arsitektur aplikasi web secara end-to-end (frontend & backend). Berpengalaman dalam pengembangan REST API, pengelolaan database, dan optimasi performa sistem.',
+    type: 'work',
+    image: 'https://picsum.photos/seed/cert3/800/600',
+    details: 'Sertifikat Fullstack Web Development'
   },
 ]
 
@@ -57,12 +57,11 @@ const fadeUp = {
 }
 
 const timelineSlide = (i) => ({
-  hidden: { opacity: 0, x: -80, scale: 0.9, filter: 'blur(4px)', transition: { duration: 0.4 } },
+  hidden: { opacity: 0, x: 80, scale: 0.9, transition: { duration: 0.4 } },
   visible: {
     opacity: 1,
     x: 0,
     scale: 1,
-    filter: 'blur(0px)',
     transition: {
       delay: i * 0.15 + 0.5,
       duration: 0.8,
@@ -148,25 +147,33 @@ export default function Experience({ active }) {
   const [selectedExperience, setSelectedExperience] = useState(null)
   return (
     <>
-      <section id="experience" className="section-panel">
+      <motion.section id="experience" className="section-panel"
+      initial={{ opacity: 0, scale: 0.9, y: 40 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      viewport={{ amount: 0.2 }}
+      transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+    >
         <motion.div
           className="container-custom flex flex-col justify-center"
           variants={stagger}
           initial="hidden"
-          animate={active ? 'visible' : 'hidden'}
+          whileInView="visible"
+          viewport={{ amount: 0.1 }}
         >
-          <motion.p variants={fadeUp} className="section-label">Pengalaman</motion.p>
+          <motion.div variants={fadeUp} className="flex flex-col w-full mb-6 md:mb-8">
+            <p className="section-label !mb-2">Pengalaman</p>
+            <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] opacity-80 rounded-full" style={{ animation: 'gradientRotate 2s linear infinite' }}></div>
+          </motion.div>
           <motion.div variants={fadeUp} className="mb-6 md:mb-12 flex flex-col items-start w-full">
             <h2 className="section-title mb-2 md:mb-3">
               Perjalanan Karir
             </h2>
-            <div className="h-[2px] w-[80%] sm:w-80 md:w-96 max-w-full bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] rounded-full opacity-80" style={{ animation: 'gradientRotate 2s linear infinite' }}></div>
           </motion.div>
 
           <motion.div variants={fadeUp} className="relative">
             <motion.div
               initial={{ scaleY: 0 }}
-              animate={active ? { scaleY: 1 } : { scaleY: 0 }}
+              whileInView={{ scaleY: 1 }}
               transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
               className="absolute left-[5px] md:left-6 top-0 bottom-0 w-[2px] origin-top bg-gradient-to-b from-transparent via-blue-500 to-transparent bg-[length:100%_200%] opacity-80"
               style={{ animation: 'gradientRotateVertical 2.5s linear infinite' }}
@@ -178,17 +185,12 @@ export default function Experience({ active }) {
                   key={i}
                   custom={i}
                   variants={timelineSlide(i)}
-                  initial="hidden"
-                  animate={active ? 'visible' : 'hidden'}
                   className="relative group"
                 >
                   <motion.div
                     variants={dotPulse}
-                    className={`absolute -left-[19px] md:-left-[34px] top-1 w-2.5 h-2.5 md:w-3 md:h-3 rounded-full border-2 ${item.type === 'education'
-                      ? 'border-accent bg-accent/20'
-                      : 'border-accent bg-dark'
-                      } group-hover:bg-accent transition-colors duration-300`}
-                    style={{ boxShadow: '0 0 10px rgba(108,99,255,0.3)' }}
+                    className={`absolute -left-[19px] md:-left-[34px] top-1 w-2.5 h-2.5 md:w-3 md:h-3 rounded-full border-2 bg-dark z-10 border-emerald-400 group-hover:bg-emerald-500 transition-colors duration-300`}
+                    style={{ boxShadow: '0 0 10px rgba(16,185,129,0.3)' }}
                   />
 
                   <div
@@ -197,10 +199,7 @@ export default function Experience({ active }) {
                   >
                     <div className="flex items-start justify-between mb-2 flex-wrap gap-1.5 md:gap-2">
                       <div>
-                        <span className={`text-[10px] md:text-xs font-medium px-2 py-0.5 rounded-full ${item.type === 'education'
-                          ? 'bg-accent/10 text-accent'
-                          : 'bg-emerald-500/10 text-emerald-400'
-                          }`}>
+                        <span className={`text-[10px] md:text-xs font-medium px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400`}>
                           {item.type === 'education' ? 'Pendidikan' : 'Pekerjaan'}
                         </span>
                       </div>
@@ -215,7 +214,7 @@ export default function Experience({ active }) {
             </div>
           </motion.div>
         </motion.div>
-      </section>
+      </motion.section>
 
       <AnimatePresence>
         {selectedExperience && (

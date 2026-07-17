@@ -65,7 +65,12 @@ export default function Hero({ scrollTo }) {
 
 
   return (
-    <section id="hero" className="section-panel relative overflow-hidden bg-dark flex items-center justify-center">
+    <motion.section id="hero" className="section-panel relative overflow-hidden bg-dark flex items-center justify-center"
+      initial={{ opacity: 0, scale: 0.9, y: 40 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      viewport={{ amount: 0.2 }}
+      transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+    >
 
       {/* Decorative Glows */}
       <div className="absolute inset-0 pointer-events-none z-0">
@@ -160,11 +165,39 @@ export default function Hero({ scrollTo }) {
         </motion.div>
 
         {/* Title */}
-        <div className="flex flex-col items-center mt-3 md:mt-6 pointer-events-auto px-4">
-          <h2 className="font-body text-sm sm:text-lg md:text-2xl font-light tracking-wide text-center">
-            <span className="text-white/50">Freelance Full</span> <span className="text-accent">Stack Developer.</span>
+        {/* Title */}
+        <div className="flex flex-col items-center mt-3 md:mt-6 pointer-events-auto px-4 w-full">
+          <h2 className="font-body text-sm sm:text-lg md:text-2xl font-light tracking-wide text-center flex justify-center items-center gap-1.5 md:gap-2">
+            <motion.span 
+              className="text-white/50 inline-block"
+              animate={{ 
+                y: [0, -4, 0, 4, 0], 
+                rotate: [0, -2, 2, -1, 0] 
+              }}
+              transition={{ 
+                repeat: Infinity, 
+                duration: 2.5, 
+                ease: "easeInOut" 
+              }}
+            >
+              Freelance Full
+            </motion.span> 
+            <motion.span 
+              className="text-accent inline-block"
+              animate={{ 
+                y: [0, 4, 0, -4, 0], 
+                rotate: [0, 2, -2, 1, 0] 
+              }}
+              transition={{ 
+                repeat: Infinity, 
+                duration: 2.8, 
+                ease: "easeInOut" 
+              }}
+            >
+              Stack Developer.
+            </motion.span>
           </h2>
-          <div className="h-[2px] w-64 sm:w-80 md:w-96 mt-3 bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] rounded-full opacity-80" style={{ animation: 'gradientRotate 2s linear infinite' }}></div>
+          <div className="h-[2px] w-full mt-3 bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] rounded-full opacity-80" style={{ animation: 'gradientRotate 2s linear infinite' }}></div>
         </div>
 
         {/* Running Text */}
@@ -221,6 +254,6 @@ export default function Hero({ scrollTo }) {
         </motion.h1>
       </div>
 
-    </section>
+    </motion.section>
   )
 }

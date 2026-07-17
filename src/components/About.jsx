@@ -125,7 +125,12 @@ export default function About({ active }) {
   const rightAnim = isMobile ? mobileFromRight : fromRight
 
   return (
-    <section id="about" className="section-panel">
+    <motion.section id="about" className="section-panel"
+      initial={{ opacity: 0, scale: 0.9, y: 40 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      viewport={{ amount: 0.2 }}
+      transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+    >
       <motion.div
         className="container-custom flex flex-col md:justify-center"
         variants={stagger}
@@ -133,16 +138,57 @@ export default function About({ active }) {
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
       >
-        <motion.p variants={fadeUp} className="section-label !mb-0 mb-6 md:mb-8">About Me</motion.p>
+        <motion.div variants={fadeUp} className="flex flex-col w-full mb-6 md:mb-8">
+          <p className="section-label !mb-2">About Me</p>
+          <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] opacity-80 rounded-full" style={{ animation: 'gradientRotate 2s linear infinite' }}></div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 gap-4 md:gap-12 lg:gap-16">
           <motion.div variants={leftAnim} className="space-y-3 md:space-y-5">
             <motion.div variants={fadeUp} className="mb-4 md:mb-8 flex flex-col items-start w-full">
-              <h2 className="section-title mb-2 md:mb-3">
-                Desain & kode,<br />
-                <span className="text-gradient">seimbang sempurna.</span>
-              </h2>
-              <div className="h-[2px] w-[80%] sm:w-80 md:w-[400px] max-w-full bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] rounded-full opacity-80" style={{ animation: 'gradientRotate 2s linear infinite' }}></div>
+              <motion.h2 
+                className="section-title mb-2 md:mb-3 flex flex-wrap"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+                <span className="block w-full">
+                  {"Desain & kode,".split(" ").map((word, i) => (
+                    <motion.span 
+                      key={`w1-${i}`}
+                      custom={i}
+                      variants={{
+                        hidden: { opacity: 0, x: -30, filter: 'blur(8px)' },
+                        visible: (idx) => ({ 
+                          opacity: 1, x: 0, filter: 'blur(0px)', 
+                          transition: { delay: 0.8 + (idx * 0.15), duration: 0.7, ease: [0.25, 0.1, 0.25, 1] } 
+                        })
+                      }} 
+                      className="inline-block mr-2 md:mr-3"
+                    >
+                      {word}
+                    </motion.span>
+                  ))}
+                </span>
+                <span className="text-gradient block w-full mt-1">
+                  {"seimbang sempurna.".split(" ").map((word, i) => (
+                    <motion.span 
+                      key={`w2-${i}`}
+                      custom={i}
+                      variants={{
+                        hidden: { opacity: 0, x: -30, filter: 'blur(8px)' },
+                        visible: (idx) => ({ 
+                          opacity: 1, x: 0, filter: 'blur(0px)', 
+                          transition: { delay: 0.8 + (idx * 0.15), duration: 0.7, ease: [0.25, 0.1, 0.25, 1] } 
+                        })
+                      }} 
+                      className="inline-block mr-2 md:mr-3"
+                    >
+                      {word}
+                    </motion.span>
+                  ))}
+                </span>
+              </motion.h2>
             </motion.div>
             <p className="text-white/60 text-sm md:text-lg leading-relaxed">
               Saya Tatabiin Hairudin Ambo bersama <strong>Team Hydra Core Digitech</strong>, berfokus sebagai pengembang perangkat lunak dan desain digital. Kami memiliki spesialisasi dalam merancang aplikasi web yang tangguh, sistem informasi yang kompleks, serta perangkat lunak kustom yang menjembatani desain inovatif dengan arsitektur teknis yang kokoh.
@@ -216,9 +262,15 @@ export default function About({ active }) {
           <motion.div variants={rightAnim} className="flex flex-col h-full mt-4 md:mt-0">
 
             <motion.div variants={fadeUp} className="flex flex-col items-center mb-4 md:mb-6">
-              <h3 className="font-display text-2xl md:text-3xl font-bold text-white text-center">
+              <motion.h3 
+                initial={{ opacity: 0, x: -30, filter: 'blur(8px)' }}
+                whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+                className="font-display text-2xl md:text-3xl font-bold text-white text-center"
+              >
                 Team <span className="text-gradient">Hydra Core Digitech</span>
-              </h3>
+              </motion.h3>
               <div className="h-[2px] w-32 mt-3 bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] rounded-full opacity-80" style={{ animation: 'gradientRotate 2s linear infinite' }}></div>
             </motion.div>
 
@@ -272,6 +324,6 @@ export default function About({ active }) {
           </motion.div>
         </div>
       </motion.div>
-    </section>
+    </motion.section>
   )
 }
