@@ -120,9 +120,12 @@ export default function Skills({ active }) {
           <p className="section-label !mb-2">Skills & Expertise</p>
           <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] opacity-80 rounded-full" style={{ animation: 'gradientRotate 2s linear infinite' }}></div>
         </motion.div>
-        <motion.h2 variants={fadeUp} className="section-title mb-6 md:mb-12">
-          Tools I wield
-        </motion.h2>
+        <div className="relative pl-6 mb-6 md:mb-12">
+          <div className="absolute left-0 top-1 bottom-1 w-[3px] bg-gradient-to-b from-transparent via-blue-500 to-transparent bg-[length:100%_200%] opacity-80 rounded-full" style={{ animation: 'gradientRotateVertical 2s linear infinite' }}></div>
+          <motion.h2 variants={fadeUp} className="section-title !mb-0">
+            Tools I wield
+          </motion.h2>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 perspective-1000">
           {skillCategories.map((cat, i) => (

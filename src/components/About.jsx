@@ -145,7 +145,8 @@ export default function About({ active }) {
 
         <div className="grid md:grid-cols-2 gap-4 md:gap-12 lg:gap-16">
           <motion.div variants={leftAnim} className="space-y-3 md:space-y-5">
-            <motion.div variants={fadeUp} className="mb-4 md:mb-8 flex flex-col items-start w-full">
+            <motion.div variants={fadeUp} className="mb-4 md:mb-8 flex flex-col items-start w-full relative pl-6">
+              <div className="absolute left-0 top-1 bottom-1 w-[3px] bg-gradient-to-b from-transparent via-blue-500 to-transparent bg-[length:100%_200%] opacity-80 rounded-full" style={{ animation: 'gradientRotateVertical 2s linear infinite' }}></div>
               <motion.h2 
                 className="section-title mb-2 md:mb-3 flex flex-wrap"
                 initial="hidden"

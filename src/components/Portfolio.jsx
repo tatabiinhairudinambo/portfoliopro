@@ -230,9 +230,12 @@ export default function Portfolio({ active }) {
           <p className="section-label !mb-2">my project</p>
           <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] opacity-80 rounded-full" style={{ animation: 'gradientRotate 2s linear infinite' }}></div>
         </motion.div>
-        <motion.p variants={fadeUp} className="text-white/60 text-sm md:text-base max-w-2xl mb-6 md:mb-8">
-          Berikut adalah beberapa karya dan proyek unggulan yang telah saya kerjakan. Mulai dari aplikasi bisnis hingga eksplorasi desain, setiap proyek dibangun dengan dedikasi untuk menghadirkan solusi digital yang inovatif dan fungsional.
-        </motion.p>
+        <div className="relative pl-6 mb-6 md:mb-8">
+          <div className="absolute left-0 top-1 bottom-1 w-[3px] bg-gradient-to-b from-transparent via-blue-500 to-transparent bg-[length:100%_200%] opacity-80 rounded-full" style={{ animation: 'gradientRotateVertical 2s linear infinite' }}></div>
+          <motion.p variants={fadeUp} className="text-white/60 text-sm md:text-base max-w-2xl">
+            Berikut adalah beberapa karya dan proyek unggulan yang telah saya kerjakan. Mulai dari aplikasi bisnis hingga eksplorasi desain, setiap proyek dibangun dengan dedikasi untuk menghadirkan solusi digital yang inovatif dan fungsional.
+          </motion.p>
+        </div>
 
 
         <motion.div variants={fadeUp} className="flex flex-wrap gap-1.5 md:gap-2 mb-5 md:mb-8">

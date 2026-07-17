@@ -119,10 +119,13 @@ export default function Contact({ active }) {
           <p className="section-label !mb-2">Contact</p>
           <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] opacity-80 rounded-full" style={{ animation: 'gradientRotate 2s linear infinite' }}></div>
         </motion.div>
-        <motion.h2 variants={fadeUp} className="section-title mb-6 md:mb-12">
-          Let's create{' '}
-          <span className="text-gradient">something great</span>
-        </motion.h2>
+        <div className="relative pl-6 mb-6 md:mb-12">
+          <div className="absolute left-0 top-1 bottom-1 w-[3px] bg-gradient-to-b from-transparent via-blue-500 to-transparent bg-[length:100%_200%] opacity-80 rounded-full" style={{ animation: 'gradientRotateVertical 2s linear infinite' }}></div>
+          <motion.h2 variants={fadeUp} className="section-title !mb-0">
+            Let's create{' '}
+            <span className="text-gradient">something great</span>
+          </motion.h2>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-12">
           <motion.div variants={formReveal} className="md:col-span-3" style={{ transformStyle: 'preserve-3d' }}>

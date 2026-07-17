@@ -5,42 +5,41 @@ const albums = [
   {
     title: 'view story',
     type: 'video', // Indicates primary content or thumbnail type
-    thumbnail: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80',
+    thumbnail: '/viewstory.jpg',
     className: 'md:col-span-2 md:row-span-2',
     media: [
       { type: 'video', url: 'http://unggah.web.id/rFl_hsMZp5dm.mp4', caption: 'saat meeting hydra core digitech' },
-      { type: 'image', url: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80', caption: 'Team Discussion' }
+      { type: 'image', url: '/viewstory.jpg', caption: 'instagram saya @attasjah_' }
     ]
   },
   {
     title: 'Live Streaming',
     type: 'image',
-    thumbnail: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80',
+    thumbnail: '/ruang1.jpg',
     className: 'md:col-span-1 md:row-span-1',
     media: [
-      { type: 'image', url: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&q=80', caption: 'Live Stream Setup' },
-      { type: 'image', url: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=1200&q=80', caption: 'Camera Angles' },
-      { type: 'video', url: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80', caption: 'Behind the Stream' }
+      { type: 'image', url: '/ruang1.jpg', caption: 'Live Stream Setup' },
+      { type: 'image', url: '/live.jpg', caption: 'saat live sebagai seorang freelance di platfrom sosial media' }
     ]
   },
   {
     title: 'vibe coding',
     type: 'image',
-    thumbnail: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=800&q=80',
+    thumbnail: '/vibe.jpeg',
     className: 'md:col-span-1 md:row-span-1',
     media: [
-      { type: 'image', url: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=1200&q=80', caption: 'Workspace Setup' },
-      { type: 'image', url: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&q=80', caption: 'Coffee Break' },
+      { type: 'image', url: '/vibe.jpeg', caption: 'saat berkumpul dengan team hydra core digitech  untuk membuat aplikasi' },
+      { type: 'image', url: '/vibe1.jpg', caption: 'saat membuat aplikasi berbasis CRM' },
       { type: 'image', url: 'https://unggah.web.id/PlEP7ywUSqNB.jpeg', caption: 'Vibe Coding' }
     ]
   },
   {
     title: 'Ruang Kerja & Suasana',
     type: 'image',
-    thumbnail: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1000&q=80',
+    thumbnail: '/ruang.jpg',
     className: 'md:col-span-2 md:row-span-1',
     media: [
-      { type: 'image', url: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&q=80', caption: 'Office Panorama' }
+      { type: 'image', url: '/ruang.jpg', caption: 'sedang analisa membuat portfolio' }
     ]
   }
 ]
@@ -110,8 +109,9 @@ export default function Testimonials({ active }) {
         </motion.div>
         
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-10 gap-4">
-          <div>
-            <motion.h2 variants={fadeUp} className="section-title">
+          <div className="relative pl-6">
+            <div className="absolute left-0 top-1 bottom-1 w-[3px] bg-gradient-to-b from-transparent via-blue-500 to-transparent bg-[length:100%_200%] opacity-80 rounded-full" style={{ animation: 'gradientRotateVertical 2s linear infinite' }}></div>
+            <motion.h2 variants={fadeUp} className="section-title !mb-0">
               Momen & Karya
             </motion.h2>
           </div>
