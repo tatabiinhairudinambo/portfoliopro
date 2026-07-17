@@ -47,7 +47,7 @@ const projects = [
     desc: <>Lihat Langsung Bagaimana<br />Topos Bekerja</>,
     fullDesc: 'Jangan Biarkan Bisnis Anda Tertinggal! Mulai kelola bisnis Anda dengan lebih profesional dari kasir digital hingga manajemen gudang dalam satu aplikasi.',
     tags: ['Design System', 'Figma', 'React', 'Storybook'],
-    category: 'Branding',
+    category: ['Branding', 'Mobile'],
     image: '/topos.jpg',
     gradient: 'from-transparent to-transparent',
     liveUrl: 'https://toposdigital.com/',
@@ -58,7 +58,7 @@ const projects = [
     desc: 'Partner teknologi terpercaya untuk transformasi digital.',
     fullDesc: 'Menghadirkan solusi Web Development, Mobile App, dan Cloud Infrastructure yang dirancang khusus untuk mendorong pertumbuhan bisnis Anda ke level berikutnya.',
     tags: ['UX Research', 'Prototyping', 'Next.js', 'Tailwind'],
-    category: 'Web',
+    category: ['Web', 'Branding'],
     image: '/hydracoredigitech.jpg',
     gradient: 'from-emerald-500 to-teal-500',
     liveUrl: 'https://hydracoredigitech.com/',
@@ -211,7 +211,7 @@ export default function Portfolio({ active }) {
 
   const filteredProjects = filter === 'All'
     ? projects
-    : projects.filter((p) => p.category === filter)
+    : projects.filter((p) => Array.isArray(p.category) ? p.category.includes(filter) : p.category === filter)
 
   return (
     <ScrollAnimation id="portfolio" className="section-panel" direction="up" duration={0.8}>
@@ -250,29 +250,35 @@ export default function Portfolio({ active }) {
           ))}
         </motion.div>
 
-        <motion.div variants={fadeUp} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5">
-          {filteredProjects.map((project, i) => (
-            <motion.div
-              key={project.title}
-              variants={cardFrom(i)}
-              className="group card overflow-hidden cursor-pointer relative"
-              onClick={() => setSelectedProject(project)}
-            >
-              <div className={`h-36 md:h-48 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
-                <img src={project.image} alt={project.title} className="w-full h-full object-cover object-left-top" />
-                <div className="absolute inset-0 bg-dark/30 group-hover:bg-dark/10 transition-colors duration-500" />
-              </div>
-              <div className="p-4 md:p-6">
-                <h3 className="font-display text-base md:text-lg font-semibold text-white group-hover:text-accent transition-colors mb-1.5 md:mb-2">{project.title}</h3>
-                <p className="text-white/40 text-xs md:text-sm leading-relaxed mb-3 md:mb-4 line-clamp-2">{project.desc}</p>
-                <div className="flex flex-wrap gap-1.5 md:gap-2">
-                  {project.tags.map((tag) => (
-                    <TagPill key={tag} tag={tag} />
-                  ))}
+        <motion.div layout variants={fadeUp} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5">
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project, i) => (
+              <motion.div
+                layout
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                key={project.title}
+                className="group card overflow-hidden cursor-pointer relative"
+                onClick={() => setSelectedProject(project)}
+              >
+                <div className={`h-36 md:h-48 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
+                  <img src={project.image} alt={project.title} className="w-full h-full object-cover object-left-top" />
+                  <div className="absolute inset-0 bg-dark/30 group-hover:bg-dark/10 transition-colors duration-500" />
                 </div>
-              </div>
-            </motion.div>
-          ))}
+                <div className="p-4 md:p-6">
+                  <h3 className="font-display text-base md:text-lg font-semibold text-white group-hover:text-accent transition-colors mb-1.5 md:mb-2">{project.title}</h3>
+                  <p className="text-white/40 text-xs md:text-sm leading-relaxed mb-3 md:mb-4 line-clamp-2">{project.desc}</p>
+                  <div className="flex flex-wrap gap-1.5 md:gap-2">
+                    {project.tags.map((tag) => (
+                      <TagPill key={tag} tag={tag} />
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </motion.div>
       </motion.div>
 

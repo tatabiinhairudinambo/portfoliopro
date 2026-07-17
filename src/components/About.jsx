@@ -314,8 +314,8 @@ export default function About({ active }) {
 
             {/* Short Bio / Description */}
             <div className="mt-6 md:mt-8 text-center px-2">
-              <p className="text-white/70 text-sm md:text-base leading-relaxed">
-                Menyatukan visi kreatif dan eksekusi teknis. Bersama tim ahli kami, saya berkomitmen untuk membangun pengalaman digital yang tidak hanya terlihat indah, tetapi juga berkinerja tinggi dan memberikan dampak nyata.
+              <p className="text-white/70 text-sm md:text-base leading-relaxed italic">
+                "Menyatukan visi kreatif dan eksekusi teknis. Bersama tim ahli kami, saya berkomitmen untuk membangun pengalaman digital yang tidak hanya terlihat indah, tetapi juga berkinerja tinggi dan memberikan dampak nyata."
               </p>
             </div>
           </motion.div>

@@ -61,6 +61,34 @@ const photoReveal = {
   },
 }
 
+const SocialIcons = () => (
+  <div className="flex items-center justify-around w-full max-w-[70%] mb-2.5 z-20">
+    <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="text-white hover:scale-110 transition-all pointer-events-auto" style={{ filter: 'drop-shadow(1.5px 1.5px 0px #fe2c55) drop-shadow(-1.5px -1.5px 0px #25f4ee)' }}>
+      <svg viewBox="0 0 24 24" className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.01.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 2.23-1.13 4.39-2.92 5.71-1.74 1.28-4.04 1.72-6.14 1.16-2.11-.53-3.83-2.01-4.73-3.95-.91-1.92-1-4.17-.22-6.14.77-1.96 2.37-3.48 4.35-4.18 1.95-.7 4.15-.65 6.03.18.01 1.48-.01 2.97.02 4.45-1.02-.45-2.2-.55-3.26-.26-1.07.28-1.99.98-2.51 1.95-.53.96-.64 2.13-.3 3.17.34 1.05 1.14 1.89 2.17 2.27 1.05.38 2.25.32 3.25-.18 1-.5 1.73-1.41 1.97-2.5.07-.33.1-.67.1-1.01-.01-5.75-.01-11.49.02-17.24z"/></svg>
+    </a>
+    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-all pointer-events-auto">
+      <svg viewBox="0 0 24 24" className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="url(#ig-grad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <defs>
+          <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#f09433" />
+            <stop offset="25%" stopColor="#e6683c" />
+            <stop offset="50%" stopColor="#dc2743" />
+            <stop offset="75%" stopColor="#cc2366" />
+            <stop offset="100%" stopColor="#bc1888" />
+          </linearGradient>
+        </defs>
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+      </svg>
+    </a>
+    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-all pointer-events-auto">
+      <svg viewBox="0 0 24 24" className="w-5 h-5 sm:w-6 sm:h-6" fill="none">
+        <rect x="2" y="2" width="20" height="20" fill="white" />
+        <path fill="#0A66C2" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+      </svg>
+    </a>
+  </div>
+)
+
 export default function Hero({ scrollTo }) {
 
 
@@ -78,12 +106,7 @@ export default function Hero({ scrollTo }) {
         <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-accent/5 rounded-full blur-[100px] animate-glow" style={{ animationDelay: '1.5s' }} />
       </div>
 
-      <div className="absolute top-8 right-6 md:top-12 md:right-12 z-40 hidden md:flex items-center text-white/70">
-        <span className="w-16 h-[1px] bg-white/50 mr-2"></span>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M9 18l6-6-6-6" />
-        </svg>
-      </div>
+
 
       {/* Layer 1: Solid Text (Background) */}
       <div className="absolute inset-0 flex items-center justify-center mb-[75vh] md:mb-[65vh] z-10 pointer-events-none select-none overflow-hidden">
@@ -141,7 +164,8 @@ export default function Hero({ scrollTo }) {
                   <div className="absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-dark to-transparent"></div>
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-dark to-transparent"></div>
                   <div className="absolute top-3 left-1/2 -translate-x-1/2 w-10 h-2.5 bg-dark/60 rounded-full shadow-inner z-20 backdrop-blur-sm border border-white/20"></div>
-                  <div className="absolute top-8 md:top-10 inset-x-0 flex justify-center z-20">
+                  <div className="absolute top-8 md:top-10 inset-x-0 flex flex-col items-center z-20">
+                    <div className="w-full max-w-[60%] h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] opacity-80 rounded-full mb-2" style={{ animation: 'gradientRotate 3s linear infinite' }}></div>
                     <h3 className="text-white/90 font-display font-bold text-[10px] sm:text-xs md:text-base tracking-widest uppercase drop-shadow-md">
                       Tatabiin Hairudin Ambo
                     </h3>
@@ -149,7 +173,8 @@ export default function Hero({ scrollTo }) {
 
                   {/* Bottom Text Front Face */}
                   <div className="absolute bottom-4 sm:bottom-6 inset-x-0 z-20 flex flex-col items-center">
-                    <div className="w-full max-w-[80%] h-px bg-gradient-to-r from-transparent via-white/40 to-transparent mb-3 sm:mb-4"></div>
+                    <SocialIcons />
+                    <div className="w-full max-w-[80%] h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] opacity-80 rounded-full mb-3 sm:mb-4" style={{ animation: 'gradientRotate 3s linear infinite' }}></div>
                     <p className="text-white font-body text-[9px] sm:text-[11px] md:text-xs uppercase tracking-[0.15em] font-medium leading-relaxed px-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] text-center">
                       Developer <span className="text-blue-400 mx-1">|</span> Creator <span className="text-blue-400 mx-1">|</span> Tech Enthusiast
                     </p>
@@ -168,13 +193,21 @@ export default function Hero({ scrollTo }) {
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-dark/90 to-transparent z-10"></div>
                   <div className="absolute top-3 left-1/2 -translate-x-1/2 w-10 h-2.5 bg-dark/60 rounded-full shadow-inner z-20 backdrop-blur-sm border border-white/20"></div>
 
+                  {/* Top Text Back Face */}
+                  <div className="absolute top-8 md:top-10 inset-x-0 flex flex-col items-center z-20">
+                    <div className="w-full max-w-[60%] h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] opacity-80 rounded-full mb-2" style={{ animation: 'gradientRotate 3s linear infinite' }}></div>
+                    <h3 className="text-white/90 font-display font-bold text-[8px] sm:text-[10px] md:text-[11px] tracking-widest uppercase drop-shadow-md text-center">
+                      Developer <span className="text-blue-400 mx-1">|</span> Creator <span className="text-blue-400 mx-1">|</span> Tech Enthusiast
+                    </h3>
+                  </div>
+
                   {/* Back Face Content */}
                   <div className="relative z-20 flex flex-col items-center justify-center h-full w-full p-4 text-center">
                     <h3 className="text-white font-display font-bold text-lg sm:text-xl md:text-2xl tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] mb-1">
                       ATTA DEV
                     </h3>
                     <p className="text-white/95 font-body text-[10px] sm:text-xs md:text-sm font-light tracking-wide mb-2 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-                      21 Tahun | Cileungsi, Jawa Barat
+                      Indonesia | Cileungsi, Jawa Barat
                     </p>
                     <div className="text-white/95 font-body font-medium text-xs sm:text-sm md:text-base drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                       <span>+62822-1384-0415</span>
@@ -183,7 +216,8 @@ export default function Hero({ scrollTo }) {
 
                   {/* Bottom Text */}
                   <div className="absolute bottom-4 sm:bottom-6 inset-x-0 z-20 flex flex-col items-center">
-                    <div className="w-full max-w-[80%] h-px bg-gradient-to-r from-transparent via-white/40 to-transparent mb-3 sm:mb-4"></div>
+                    <SocialIcons />
+                    <div className="w-full max-w-[80%] h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] opacity-80 rounded-full mb-3 sm:mb-4" style={{ animation: 'gradientRotate 3s linear infinite' }}></div>
                     <p className="text-white font-body text-[9px] sm:text-[11px] md:text-xs uppercase tracking-[0.15em] font-medium leading-relaxed px-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] text-center">
                       Developer <span className="text-blue-400 mx-1">|</span> Creator <span className="text-blue-400 mx-1">|</span> Tech Enthusiast
                     </p>
@@ -238,10 +272,10 @@ export default function Hero({ scrollTo }) {
             transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
             style={{ width: "fit-content" }}
           >
-            <p className="text-white/90 font-body text-[11px] sm:text-sm md:text-base font-light tracking-wide pr-10">
+            <p className="text-white/90 font-body text-[11px] sm:text-sm md:text-base font-light tracking-wide pr-10 italic">
               Saya membantu bisnis, UMKM, dan startup untuk bertumbuh di era digital dengan solusi website yang modern, interaktif, dan berkinerja tinggi. Mari wujudkan ide cemerlang Anda menjadi nyata!
             </p>
-            <p className="text-white/90 font-body text-[11px] sm:text-sm md:text-base font-light tracking-wide pr-10">
+            <p className="text-white/90 font-body text-[11px] sm:text-sm md:text-base font-light tracking-wide pr-10 italic">
               Saya membantu bisnis, UMKM, dan startup untuk bertumbuh di era digital dengan solusi website yang modern, interaktif, dan berkinerja tinggi. Mari wujudkan ide cemerlang Anda menjadi nyata!
             </p>
           </motion.div>

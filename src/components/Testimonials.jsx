@@ -103,7 +103,7 @@ export default function Testimonials({ active }) {
           <p className="section-label !mb-2">Brand Gallery</p>
           <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] opacity-80 rounded-full" style={{ animation: 'gradientRotate 2s linear infinite' }}></div>
         </motion.div>
-        
+
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-10 gap-4">
           <div className="relative pl-6">
             <div className="absolute left-0 top-1 bottom-1 w-[3px] bg-gradient-to-b from-transparent via-blue-500 to-transparent bg-[length:100%_200%] opacity-80 rounded-full" style={{ animation: 'gradientRotateVertical 2s linear infinite' }}></div>
@@ -111,7 +111,7 @@ export default function Testimonials({ active }) {
               Momen & Karya
             </motion.h2>
           </div>
-          <motion.div variants={fadeUp} className="text-white/50 text-sm md:text-base max-w-sm">
+          <motion.div variants={fadeUp} className="font-display text-white/50 text-sm md:text-base max-w-sm">
             Jelajahi berbagai album dokumentasi, di balik layar, dan proses kreatif tim kami.
           </motion.div>
         </div>
@@ -170,7 +170,7 @@ export default function Testimonials({ active }) {
                   {currentMediaIndex + 1} of {selectedAlbum.media.length}
                 </p>
               </div>
-              <button 
+              <button
                 className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-colors"
                 onClick={(e) => { e.stopPropagation(); closeAlbum(); }}
               >
@@ -182,7 +182,7 @@ export default function Testimonials({ active }) {
 
             {/* Prev Button (Only show if multiple items) */}
             {selectedAlbum.media.length > 1 && (
-              <button 
+              <button
                 className="absolute left-2 md:left-8 top-1/2 transform -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-colors z-20"
                 onClick={handlePrev}
               >
@@ -194,7 +194,7 @@ export default function Testimonials({ active }) {
 
             {/* Next Button (Only show if multiple items) */}
             {selectedAlbum.media.length > 1 && (
-              <button 
+              <button
                 className="absolute right-2 md:right-8 top-1/2 transform -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-colors z-20"
                 onClick={handleNext}
               >
@@ -205,7 +205,7 @@ export default function Testimonials({ active }) {
             )}
 
             {/* Media Content */}
-            <motion.div 
+            <motion.div
               key={currentMediaIndex} // Force re-render/animation on change
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -215,16 +215,16 @@ export default function Testimonials({ active }) {
               onClick={(e) => e.stopPropagation()}
             >
               {currentMedia.type === 'video' ? (
-                <video 
-                  src={currentMedia.url} 
+                <video
+                  src={currentMedia.url}
                   controls
                   autoPlay
                   className="max-w-full max-h-[65vh] object-contain rounded-lg shadow-2xl"
                 />
               ) : (
-                <img 
-                  src={currentMedia.url} 
-                  alt={currentMedia.caption} 
+                <img
+                  src={currentMedia.url}
+                  alt={currentMedia.caption}
                   className="max-w-full max-h-[65vh] object-contain rounded-lg shadow-2xl"
                 />
               )}

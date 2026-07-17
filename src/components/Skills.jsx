@@ -119,7 +119,7 @@ export default function Skills({ active }) {
         <div className="relative pl-6 mb-6 md:mb-12">
           <div className="absolute left-0 top-1 bottom-1 w-[3px] bg-gradient-to-b from-transparent via-blue-500 to-transparent bg-[length:100%_200%] opacity-80 rounded-full" style={{ animation: 'gradientRotateVertical 2s linear infinite' }}></div>
           <motion.h2 variants={fadeUp} className="section-title !mb-0">
-            Tools I wield
+            Alat yang Saya Gunakan
           </motion.h2>
         </div>
 
@@ -146,6 +146,13 @@ export default function Skills({ active }) {
             </motion.div>
           ))}
         </div>
+
+        <motion.div variants={fadeUp} className="mt-12 md:mt-16 flex flex-col items-center justify-center text-center">
+          <p className="text-white/50 max-w-2xl text-sm md:text-base leading-relaxed font-medium italic">
+            "Dunia teknologi terus berkembang, dan saya selalu antusias untuk beradaptasi. Saya percaya bahwa fondasi yang kuat digabungkan dengan pembelajaran berkelanjutan adalah kunci untuk menciptakan solusi digital yang relevan."
+          </p>
+          <div className="h-[2px] w-full max-w-2xl mt-4 md:mt-6 bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] opacity-80 rounded-full" style={{ animation: 'gradientRotate 3s linear infinite' }}></div>
+        </motion.div>
       </motion.div>
     </ScrollAnimation>
   )
