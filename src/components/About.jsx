@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import ScrollAnimation from './ScrollAnimation'
 
 const stagger = {
   hidden: {
@@ -125,12 +126,7 @@ export default function About({ active }) {
   const rightAnim = isMobile ? mobileFromRight : fromRight
 
   return (
-    <motion.section id="about" className="section-panel"
-      initial={{ opacity: 0, scale: 0.9, y: 40 }}
-      whileInView={{ opacity: 1, scale: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-    >
+    <ScrollAnimation id="about" className="section-panel" direction="up" duration={0.8}>
       <motion.div
         className="container-custom flex flex-col md:justify-center"
         variants={stagger}
@@ -325,6 +321,6 @@ export default function About({ active }) {
           </motion.div>
         </div>
       </motion.div>
-    </motion.section>
+    </ScrollAnimation>
   )
 }

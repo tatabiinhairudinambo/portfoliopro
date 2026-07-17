@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import ScrollAnimation from './ScrollAnimation'
 
 const stagger = {
   hidden: {
@@ -123,12 +124,7 @@ export default function Contact({ active }) {
   };
 
   return (
-    <motion.section id="contact" className="section-panel"
-      initial={{ opacity: 0, scale: 0.9, y: 40 }}
-      whileInView={{ opacity: 1, scale: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-    >
+    <ScrollAnimation id="contact" className="section-panel" direction="up" duration={0.8}>
       <motion.div
         className="container-custom flex flex-col justify-center"
         variants={stagger}
@@ -220,6 +216,6 @@ export default function Contact({ active }) {
           <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] opacity-80" style={{ animation: 'gradientRotate 2s linear infinite' }}></div>
         </motion.div>
       </motion.div>
-    </motion.section>
+    </ScrollAnimation>
   )
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import ScrollAnimation from './ScrollAnimation'
 
 const tagStyles = {
   'Design System': { color: '#A259FF', icon: <svg className="w-2.5 h-2.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg> },
@@ -213,12 +214,7 @@ export default function Portfolio({ active }) {
     : projects.filter((p) => p.category === filter)
 
   return (
-    <motion.section id="portfolio" className="section-panel"
-      initial={{ opacity: 0, scale: 0.9, y: 40 }}
-      whileInView={{ opacity: 1, scale: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-    >
+    <ScrollAnimation id="portfolio" className="section-panel" direction="up" duration={0.8}>
       <motion.div
         className="container-custom flex flex-col justify-center"
         variants={stagger}
@@ -285,6 +281,6 @@ export default function Portfolio({ active }) {
           <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
         )}
       </AnimatePresence>
-    </motion.section>
+    </ScrollAnimation>
   )
 }

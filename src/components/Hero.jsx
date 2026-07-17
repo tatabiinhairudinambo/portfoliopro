@@ -146,18 +146,48 @@ export default function Hero({ scrollTo }) {
                       Tatabiin Hairudin Ambo
                     </h3>
                   </div>
+
+                  {/* Bottom Text Front Face */}
+                  <div className="absolute bottom-4 sm:bottom-6 inset-x-0 z-20 flex flex-col items-center">
+                    <div className="w-full max-w-[80%] h-px bg-gradient-to-r from-transparent via-white/40 to-transparent mb-3 sm:mb-4"></div>
+                    <p className="text-white font-body text-[9px] sm:text-[11px] md:text-xs uppercase tracking-[0.15em] font-medium leading-relaxed px-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] text-center">
+                      Developer <span className="text-blue-400 mx-1">|</span> Creator <span className="text-blue-400 mx-1">|</span> Tech Enthusiast
+                    </p>
+                  </div>
                 </div>
 
                 {/* BACK FACE */}
-                <div className="absolute inset-0 bg-dark rounded-[1.25rem] md:rounded-[1.5rem] shadow-[0_0_40px_rgba(0,0,0,0.5)] overflow-hidden border border-accent/40" style={{ transform: 'rotateY(180deg)', backfaceVisibility: 'hidden' }}>
+                <div className="absolute inset-0 bg-dark rounded-[1.25rem] md:rounded-[1.5rem] shadow-[0_0_40px_rgba(0,0,0,0.5)] overflow-hidden border border-accent/40 flex flex-col justify-center items-center" style={{ transform: 'rotateY(180deg)', backfaceVisibility: 'hidden' }}>
                   <img
                     src="/belakang.jpg"
                     alt="ID Card Back"
-                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                   />
-                  <div className="absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-dark to-transparent"></div>
-                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-dark to-transparent"></div>
+                  <div className="absolute inset-0 bg-dark/40 z-10"></div>
+                  <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-dark/90 to-transparent z-10"></div>
+                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-dark/90 to-transparent z-10"></div>
                   <div className="absolute top-3 left-1/2 -translate-x-1/2 w-10 h-2.5 bg-dark/60 rounded-full shadow-inner z-20 backdrop-blur-sm border border-white/20"></div>
+
+                  {/* Back Face Content */}
+                  <div className="relative z-20 flex flex-col items-center justify-center h-full w-full p-4 text-center">
+                    <h3 className="text-white font-display font-bold text-lg sm:text-xl md:text-2xl tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] mb-1">
+                      ATTA DEV
+                    </h3>
+                    <p className="text-white/95 font-body text-[10px] sm:text-xs md:text-sm font-light tracking-wide mb-2 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                      21 Tahun | Cileungsi, Jawa Barat
+                    </p>
+                    <div className="text-white/95 font-body font-medium text-xs sm:text-sm md:text-base drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                      <span>+62822-1384-0415</span>
+                    </div>
+                  </div>
+
+                  {/* Bottom Text */}
+                  <div className="absolute bottom-4 sm:bottom-6 inset-x-0 z-20 flex flex-col items-center">
+                    <div className="w-full max-w-[80%] h-px bg-gradient-to-r from-transparent via-white/40 to-transparent mb-3 sm:mb-4"></div>
+                    <p className="text-white font-body text-[9px] sm:text-[11px] md:text-xs uppercase tracking-[0.15em] font-medium leading-relaxed px-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] text-center">
+                      Developer <span className="text-blue-400 mx-1">|</span> Creator <span className="text-blue-400 mx-1">|</span> Tech Enthusiast
+                    </p>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -168,30 +198,30 @@ export default function Hero({ scrollTo }) {
         {/* Title */}
         <div className="flex flex-col items-center mt-3 md:mt-6 pointer-events-auto px-4 w-full">
           <h2 className="font-body text-sm sm:text-lg md:text-2xl font-light tracking-wide text-center flex justify-center items-center gap-1.5 md:gap-2">
-            <motion.span 
+            <motion.span
               className="text-white/50 inline-block"
-              animate={{ 
-                y: [0, -4, 0, 4, 0], 
-                rotate: [0, -2, 2, -1, 0] 
+              animate={{
+                y: [0, -4, 0, 4, 0],
+                rotate: [0, -2, 2, -1, 0]
               }}
-              transition={{ 
-                repeat: Infinity, 
-                duration: 2.5, 
-                ease: "easeInOut" 
+              transition={{
+                repeat: Infinity,
+                duration: 2.5,
+                ease: "easeInOut"
               }}
             >
               Freelance Full
-            </motion.span> 
-            <motion.span 
+            </motion.span>
+            <motion.span
               className="text-accent inline-block"
-              animate={{ 
-                y: [0, 4, 0, -4, 0], 
-                rotate: [0, 2, -2, 1, 0] 
+              animate={{
+                y: [0, 4, 0, -4, 0],
+                rotate: [0, 2, -2, 1, 0]
               }}
-              transition={{ 
-                repeat: Infinity, 
-                duration: 2.8, 
-                ease: "easeInOut" 
+              transition={{
+                repeat: Infinity,
+                duration: 2.8,
+                ease: "easeInOut"
               }}
             >
               Stack Developer.
@@ -209,10 +239,10 @@ export default function Hero({ scrollTo }) {
             style={{ width: "fit-content" }}
           >
             <p className="text-white/90 font-body text-[11px] sm:text-sm md:text-base font-light tracking-wide pr-10">
-              Saya membantu bisnis, UMKM, dan startup untuk bertumbuh di era digital dengan solusi website yang modern, interaktif, dan berkinerja tinggi. Mari wujudkan ide cemerlang Anda menjadi nyata! ✨
+              Saya membantu bisnis, UMKM, dan startup untuk bertumbuh di era digital dengan solusi website yang modern, interaktif, dan berkinerja tinggi. Mari wujudkan ide cemerlang Anda menjadi nyata!
             </p>
             <p className="text-white/90 font-body text-[11px] sm:text-sm md:text-base font-light tracking-wide pr-10">
-              Saya membantu bisnis, UMKM, dan startup untuk bertumbuh di era digital dengan solusi website yang modern, interaktif, dan berkinerja tinggi. Mari wujudkan ide cemerlang Anda menjadi nyata! ✨
+              Saya membantu bisnis, UMKM, dan startup untuk bertumbuh di era digital dengan solusi website yang modern, interaktif, dan berkinerja tinggi. Mari wujudkan ide cemerlang Anda menjadi nyata!
             </p>
           </motion.div>
         </div>
