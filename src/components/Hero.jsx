@@ -226,7 +226,7 @@ export default function Hero({ scrollTo }) {
             </svg>
           </button>
           <button onClick={() => scrollTo(6)} className="relative hover-running-border btn-outline bg-dark-200/50 backdrop-blur-md text-xs sm:text-sm md:text-base px-4 py-2.5 md:px-6 md:py-3">
-            Contact Me
+            Hubungi Saya
           </button>
         </motion.div>
 
@@ -250,7 +250,7 @@ export default function Hero({ scrollTo }) {
           className="font-display font-black text-[18vw] md:text-[18vw] leading-none tracking-tighter uppercase whitespace-nowrap text-center w-full"
           style={{ color: 'transparent' }}
         >
-          <span style={{ WebkitTextStroke: '2px rgba(255,255,255,0.2)' }}>PORT</span><span style={{ WebkitTextStroke: '2px rgba(59,130,246,0.6)' }}>FOLIO</span>
+          <span className="animate-text-stroke-port" style={{ WebkitTextStroke: '2px rgba(255,255,255,0.2)' }}>PORT</span><span className="animate-text-stroke-folio" style={{ WebkitTextStroke: '2px rgba(59,130,246,0.6)' }}>FOLIO</span>
         </motion.h1>
       </div>
 

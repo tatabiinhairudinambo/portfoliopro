@@ -92,6 +92,44 @@
     100% { background-position: 0% 200%; }
   }
 
+  @keyframes textStrokeRunPort {
+    0% {
+      -webkit-text-stroke-color: rgba(255, 255, 255, 0.2);
+      text-shadow: 0 0 0px rgba(255, 255, 255, 0);
+    }
+    20% {
+      -webkit-text-stroke-color: rgba(255, 255, 255, 0.5);
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+    40%, 100% {
+      -webkit-text-stroke-color: rgba(255, 255, 255, 0.2);
+      text-shadow: 0 0 0px rgba(255, 255, 255, 0);
+    }
+  }
+
+  @keyframes textStrokeRunFolio {
+    0%, 20% {
+      -webkit-text-stroke-color: rgba(59, 130, 246, 0.2);
+      text-shadow: 0 0 0px rgba(59, 130, 246, 0);
+    }
+    40% {
+      -webkit-text-stroke-color: rgba(59, 130, 246, 0.6);
+      text-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+    }
+    60%, 100% {
+      -webkit-text-stroke-color: rgba(59, 130, 246, 0.2);
+      text-shadow: 0 0 0px rgba(59, 130, 246, 0);
+    }
+  }
+
+  .animate-text-stroke-port {
+    animation: textStrokeRunPort 4s ease-in-out infinite;
+  }
+
+  .animate-text-stroke-folio {
+    animation: textStrokeRunFolio 4s ease-in-out infinite;
+  }
+
   .card {
     @apply relative bg-transparent border border-white/5 rounded-2xl transition-all duration-300 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)];
   }
