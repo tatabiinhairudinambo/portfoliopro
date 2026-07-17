@@ -139,14 +139,13 @@ const dirs = [
 function cardFrom(i) {
   const d = dirs[i % dirs.length]
   return {
-    hidden: { opacity: 0, x: d.x, y: d.y, rotate: d.rotate, scale: 0.7, filter: 'blur(8px)' },
+    hidden: { opacity: 0, x: d.x, y: d.y, rotate: d.rotate, scale: 0.7 },
     visible: {
       opacity: 1,
       x: 0,
       y: 0,
       rotate: 0,
       scale: 1,
-      filter: 'blur(0px)',
       transition: { duration: 0.7, ease: [0.25, 0.1, 0.25, 1] },
     },
   }
@@ -217,7 +216,7 @@ export default function Portfolio({ active }) {
     <motion.section id="portfolio" className="section-panel"
       initial={{ opacity: 0, scale: 0.9, y: 40 }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
-      viewport={{ amount: 0.2 }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
     >
       <motion.div
@@ -225,7 +224,7 @@ export default function Portfolio({ active }) {
         variants={stagger}
         initial="hidden"
         whileInView="visible"
-        viewport={{ amount: 0.1 }}
+        viewport={{ once: true, amount: 0.1 }}
       >
         <motion.div variants={fadeUp} className="flex flex-col w-full mb-6 md:mb-8">
           <p className="section-label !mb-2">my project</p>

@@ -17,25 +17,23 @@ const fadeUp = {
 }
 
 const formReveal = {
-  hidden: { opacity: 0, x: -120, scale: 0.9, rotateY: 10, filter: 'blur(8px)', transition: { duration: 0.5 } },
+  hidden: { opacity: 0, x: -120, scale: 0.9, rotateY: 10, transition: { duration: 0.5 } },
   visible: {
     opacity: 1,
     x: 0,
     scale: 1,
     rotateY: 0,
-    filter: 'blur(0px)',
     transition: { duration: 1, ease: [0.25, 0.1, 0.25, 1] },
   },
 }
 
 const infoReveal = {
-  hidden: { opacity: 0, x: 120, scale: 0.9, rotateY: -10, filter: 'blur(8px)', transition: { duration: 0.5 } },
+  hidden: { opacity: 0, x: 120, scale: 0.9, rotateY: -10, transition: { duration: 0.5 } },
   visible: {
     opacity: 1,
     x: 0,
     scale: 1,
     rotateY: 0,
-    filter: 'blur(0px)',
     transition: { duration: 1, ease: [0.25, 0.1, 0.25, 1] },
   },
 }
@@ -107,7 +105,7 @@ export default function Contact({ active }) {
     <motion.section id="contact" className="section-panel"
       initial={{ opacity: 0, scale: 0.9, y: 40 }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
-      viewport={{ amount: 0.2 }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
     >
       <motion.div

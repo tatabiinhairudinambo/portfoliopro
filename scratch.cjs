@@ -1,25 +1,29 @@
 const fs = require('fs');
-const files = ['Hero.jsx', 'About.jsx', 'Experience.jsx', 'Portfolio.jsx', 'Skills.jsx', 'Testimonials.jsx', 'Contact.jsx'];
+const path = require('path');
 
-files.forEach(f => {
-  let p = 'src/components/' + f;
-  if (!fs.existsSync(p)) return;
+const componentsDir = path.join(__dirname, 'src', 'components');
+
+const files = fs.readdirSync(componentsDir).filter(file => file.endsWith('.jsx'));
+
+let changedFiles = 0;
+
+for (const file of files) {
+  const filePath = path.join(componentsDir, file);
+  let content = fs.readFileSync(filePath, 'utf8');
+  let originalContent = content;
+
+  // Replace viewport configs that don't have once: true
+  content = content.replace(/viewport=\{\{\s*amount:\s*(0\.\d+)\s*\}\}/g, 'viewport={{ once: true, amount: $1 }}');
   
-  let c = fs.readFileSync(p, 'utf8');
-  
-  // Only replace if not already motion.section
-  if (c.includes('<section ')) {
-    c = c.replace(/<section id="([^"]+)" className="([^"]+)"\s*>/, 
-      '<motion.section id="$1" className="$2"\n      initial={{ opacity: 0.3, filter: \'blur(10px)\' }}\n      whileInView={{ opacity: 1, filter: \'blur(0px)\' }}\n      viewport={{ amount: 0.2 }}\n      transition={{ duration: 0.8, ease: "easeOut" }}\n    >');
-      
-    c = c.replace(/<\/section>/g, '</motion.section>');
-    
-    // Check if framer-motion is imported. It should be, but let's check
-    if (!c.includes('framer-motion')) {
-      c = "import { motion } from 'framer-motion';\n" + c;
-    }
-    
-    fs.writeFileSync(p, c);
-    console.log('Updated ' + f);
+  // Remove blur filters from framer-motion animations
+  content = content.replace(/,\s*filter:\s*'blur\(\d+px\)'/g, '');
+  content = content.replace(/filter:\s*'blur\(\d+px\)'\s*,?/g, '');
+
+  if (content !== originalContent) {
+    fs.writeFileSync(filePath, content, 'utf8');
+    changedFiles++;
+    console.log(`Updated ${file}`);
   }
-});
+}
+
+console.log(`Successfully updated ${changedFiles} files.`);

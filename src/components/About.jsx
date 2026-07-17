@@ -128,7 +128,7 @@ export default function About({ active }) {
     <motion.section id="about" className="section-panel"
       initial={{ opacity: 0, scale: 0.9, y: 40 }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
-      viewport={{ amount: 0.2 }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
     >
       <motion.div
@@ -158,9 +158,9 @@ export default function About({ active }) {
                       key={`w1-${i}`}
                       custom={i}
                       variants={{
-                        hidden: { opacity: 0, x: -30, filter: 'blur(8px)' },
+                        hidden: { opacity: 0, x: -30 },
                         visible: (idx) => ({ 
-                          opacity: 1, x: 0, filter: 'blur(0px)', 
+                          opacity: 1, x: 0, 
                           transition: { delay: 0.8 + (idx * 0.15), duration: 0.7, ease: [0.25, 0.1, 0.25, 1] } 
                         })
                       }} 
@@ -176,9 +176,9 @@ export default function About({ active }) {
                       key={`w2-${i}`}
                       custom={i}
                       variants={{
-                        hidden: { opacity: 0, x: -30, filter: 'blur(8px)' },
+                        hidden: { opacity: 0, x: -30 },
                         visible: (idx) => ({ 
-                          opacity: 1, x: 0, filter: 'blur(0px)', 
+                          opacity: 1, x: 0, 
                           transition: { delay: 0.8 + (idx * 0.15), duration: 0.7, ease: [0.25, 0.1, 0.25, 1] } 
                         })
                       }} 
@@ -263,8 +263,8 @@ export default function About({ active }) {
 
             <motion.div variants={fadeUp} className="flex flex-col items-center mb-4 md:mb-6">
               <motion.h3 
-                initial={{ opacity: 0, x: -30, filter: 'blur(8px)' }}
-                whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
                 className="font-display text-2xl md:text-3xl font-bold text-white text-center"

@@ -68,7 +68,7 @@ export default function Hero({ scrollTo }) {
     <motion.section id="hero" className="section-panel relative overflow-hidden bg-dark flex items-center justify-center"
       initial={{ opacity: 0, scale: 0.9, y: 40 }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
-      viewport={{ amount: 0.2 }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
     >
 

@@ -55,7 +55,6 @@ const cardFlip3D = (i) => ({
     y: 100,
     rotateX: 50,
     scale: 0.7,
-    filter: 'blur(6px)',
     transition: { duration: 0.4 },
   },
   visible: {
@@ -63,7 +62,6 @@ const cardFlip3D = (i) => ({
     y: 0,
     rotateX: 0,
     scale: 1,
-    filter: 'blur(0px)',
     transition: {
       delay: i * 0.15,
       duration: 0.9,
@@ -109,7 +107,7 @@ export default function Skills({ active }) {
     <motion.section id="skills" className="section-panel"
       initial={{ opacity: 0, scale: 0.9, y: 40 }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
-      viewport={{ amount: 0.2 }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
     >
       <motion.div
