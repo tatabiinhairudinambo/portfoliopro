@@ -1,5 +1,15 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import LogoLoop from './LogoLoop';
+import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss } from 'react-icons/si';
+
+const techLogos = [
+  { node: <SiReact />, title: "React", href: "https://react.dev" },
+  { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
+  { node: <SiTypescript />, title: "TypeScript", href: "https://www.typescriptlang.org" },
+  { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
+];
+
 
 
 const stagger = {
@@ -264,21 +274,22 @@ export default function Hero({ scrollTo }) {
           <div className="h-[2px] w-full mt-3 bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] rounded-full opacity-80" style={{ animation: 'gradientRotate 2s linear infinite' }}></div>
         </div>
 
-        {/* Running Text */}
-        <div className="w-full max-w-[90vw] md:max-w-2xl mt-2 md:mt-3 overflow-hidden pointer-events-auto relative [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] flex">
-          <motion.div
-            className="flex whitespace-nowrap"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
-            style={{ width: "fit-content" }}
-          >
-            <p className="text-white/90 font-body text-[11px] sm:text-sm md:text-base font-light tracking-wide pr-10 italic">
-              Saya membantu bisnis, UMKM, dan startup untuk bertumbuh di era digital dengan solusi website yang modern, interaktif, dan berkinerja tinggi. Mari wujudkan ide cemerlang Anda menjadi nyata!
-            </p>
-            <p className="text-white/90 font-body text-[11px] sm:text-sm md:text-base font-light tracking-wide pr-10 italic">
-              Saya membantu bisnis, UMKM, dan startup untuk bertumbuh di era digital dengan solusi website yang modern, interaktif, dan berkinerja tinggi. Mari wujudkan ide cemerlang Anda menjadi nyata!
-            </p>
-          </motion.div>
+        {/* Tech Logos */}
+        <div className="w-full max-w-[90vw] md:max-w-2xl mt-2 md:mt-3 pointer-events-auto flex justify-center text-white/50">
+          <div style={{ height: '32px', position: 'relative', overflow: 'hidden', width: '100%' }}>
+            <LogoLoop
+              logos={techLogos}
+              speed={120}
+              direction="left"
+              logoHeight={32}
+              gap={40}
+              hoverSpeed={0}
+              scaleOnHover
+              fadeOut
+              fadeOutColor="transparent"
+              ariaLabel="Technology stack"
+            />
+          </div>
         </div>
 
         {/* Buttons */}
