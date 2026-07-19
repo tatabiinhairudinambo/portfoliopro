@@ -199,20 +199,17 @@ export default function Contact({ active }) {
               </div>
             </div>
 
-            <div className="card p-5 md:p-8">
-              <p className="text-white/30 text-xs md:text-sm leading-relaxed">
-                Terbuka untuk proyek freelance dan peluang full-time.
-                Saya biasanya merespon dalam 24 jam.
-              </p>
-            </div>
           </motion.div>
         </div>
 
         <motion.div
           variants={fadeUp}
-          className="relative mt-8 md:mt-12 pt-5 md:pt-6 pb-4 border-t border-white/5 flex flex-col items-center justify-center text-white/20 text-[11px] md:text-xs"
+          className="relative mt-8 md:mt-12 pt-5 md:pt-6 pb-4 border-t border-white/5 flex flex-col items-center justify-center text-white/20 text-[11px] md:text-xs text-center"
         >
-          <p>&copy; 2025 Developer Tatabiin Hairudin Ambo. All rights reserved.</p>
+          <p className="text-white/40 text-xs md:text-sm leading-relaxed italic mb-4 max-w-lg">
+            "Terbuka untuk proyek freelance dan peluang full-time. Saya biasanya merespon dalam 24 jam."
+          </p>
+          <p>&copy; 2026 mari bergabung bersama saya by developer tatabiin hairudin ambo</p>
           <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] opacity-80" style={{ animation: 'gradientRotate 2s linear infinite' }}></div>
         </motion.div>
       </motion.div>

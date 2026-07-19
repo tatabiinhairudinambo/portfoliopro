@@ -258,7 +258,7 @@ export default function Portfolio({ active }) {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
+                transition={{ layout: { type: "spring", stiffness: 200, damping: 25 }, opacity: { duration: 0.2 }, scale: { duration: 0.3 } }}
                 key={project.title}
                 className="group card overflow-hidden cursor-pointer relative"
                 onClick={() => setSelectedProject(project)}

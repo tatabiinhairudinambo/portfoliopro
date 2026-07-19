@@ -1,5 +1,10 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import ScrollAnimation from './ScrollAnimation'
+import { FaQuoteLeft } from 'react-icons/fa'
+import { GitHubCalendar } from 'react-github-calendar'
+
+
 
 const skillCategories = [
   {
@@ -104,6 +109,8 @@ function SkillBar({ name, level, color, icon, index }) {
 }
 
 export default function Skills({ active }) {
+  const [selectedYear, setSelectedYear] = useState(2024)
+
   return (
     <ScrollAnimation id="skills" className="section-panel" direction="up" duration={0.8}>
       <motion.div
@@ -147,11 +154,60 @@ export default function Skills({ active }) {
           ))}
         </div>
 
-        <motion.div variants={fadeUp} className="mt-12 md:mt-16 flex flex-col items-center justify-center text-center">
-          <p className="text-white/50 max-w-2xl text-sm md:text-base leading-relaxed font-medium italic">
-            "Dunia teknologi terus berkembang, dan saya selalu antusias untuk beradaptasi. Saya percaya bahwa fondasi yang kuat digabungkan dengan pembelajaran berkelanjutan adalah kunci untuk menciptakan solusi digital yang relevan."
+        <motion.div variants={fadeUp} className="w-full flex justify-center mt-8 md:mt-12 mb-2">
+          <div className="h-[2px] w-full max-w-4xl bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] opacity-80 rounded-full" style={{ animation: 'gradientRotate 3s linear infinite' }}></div>
+        </motion.div>
+
+        <motion.div variants={fadeUp} className="mt-4 md:mt-6 flex flex-col items-center justify-center text-center relative w-full overflow-x-auto">
+          <h3 className="font-display text-xl md:text-2xl font-semibold text-white mb-4">GitHub Contributions</h3>
+          <div className="card p-6 md:p-8 w-full flex flex-col items-center relative">
+            
+            <div className="flex flex-col md:flex-row gap-6 w-full items-center justify-center">
+              <div className="w-full overflow-x-auto custom-scrollbar flex justify-center text-xs md:text-sm">
+                <GitHubCalendar 
+                  username="tatabiinhairudinambo" 
+                  year={selectedYear}
+                  colorScheme="dark"
+                  theme={{
+                    dark: ['#161B22', '#0e4429', '#006d32', '#26a641', '#39d353']
+                  }}
+                />
+              </div>
+              
+              <div className="flex flex-row md:flex-col justify-center gap-2 md:w-24 shrink-0">
+                {[2026, 2025, 2024].map((year) => (
+                  <button
+                    key={year}
+                    onClick={() => setSelectedYear(year)}
+                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all w-full text-center ${
+                      selectedYear === year
+                        ? 'bg-blue-500 text-white'
+                        : 'text-white/60 hover:text-white hover:bg-white/5'
+                    }`}
+                  >
+                    {year}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <a 
+              href="https://github.com/tatabiinhairudinambo" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="mt-8 font-display text-white/60 hover:text-accent text-sm md:text-base font-medium transition-colors flex items-center gap-2"
+            >
+              Kunjungi GitHub
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+            </a>
+            <div className="h-[2px] w-32 mt-2 bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] opacity-80 rounded-full" style={{ animation: 'gradientRotate 3s linear infinite' }}></div>
+          </div>
+        </motion.div>
+
+        <motion.div variants={fadeUp} className="mt-6 md:mt-8 flex justify-center text-center px-4">
+          <p className="font-display text-white/50 text-sm md:text-base italic max-w-2xl">
+            "Membangun solusi digital dengan fondasi yang kuat, menggabungkan desain UI/UX yang intuitif, serta pengembangan kode yang responsif dan andal."
           </p>
-          <div className="h-[2px] w-full max-w-2xl mt-4 md:mt-6 bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] opacity-80 rounded-full" style={{ animation: 'gradientRotate 3s linear infinite' }}></div>
         </motion.div>
       </motion.div>
     </ScrollAnimation>

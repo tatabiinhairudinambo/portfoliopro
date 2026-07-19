@@ -11,7 +11,7 @@ import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
 import ScrollIndicator from './components/ScrollIndicator'
 import BackToTop from './components/BackToTop'
-import Cursor from './components/Cursor'
+import SplashCursor from './components/SplashCursor'
 
 
 
@@ -55,7 +55,7 @@ function PortfolioApp() {
 
   return (
     <div className="relative">
-      <Cursor />
+      <SplashCursor />
       <ScrollIndicator activeIndex={activeIndex} scrollTo={scrollTo} sections={sectionIds} />
       <BackToTop scrollTo={scrollTo} />
 

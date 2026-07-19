@@ -104,16 +104,13 @@ export default function Testimonials({ active }) {
           <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] opacity-80 rounded-full" style={{ animation: 'gradientRotate 2s linear infinite' }}></div>
         </motion.div>
 
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-10 gap-4">
+        <div className="mb-8 md:mb-10">
           <div className="relative pl-6">
             <div className="absolute left-0 top-1 bottom-1 w-[3px] bg-gradient-to-b from-transparent via-blue-500 to-transparent bg-[length:100%_200%] opacity-80 rounded-full" style={{ animation: 'gradientRotateVertical 2s linear infinite' }}></div>
             <motion.h2 variants={fadeUp} className="section-title !mb-0">
               Momen & Karya
             </motion.h2>
           </div>
-          <motion.div variants={fadeUp} className="font-display text-white/50 text-sm md:text-base max-w-sm">
-            Jelajahi berbagai album dokumentasi, di balik layar, dan proses kreatif tim kami.
-          </motion.div>
         </div>
 
         <motion.div 
@@ -149,6 +146,12 @@ export default function Testimonials({ active }) {
               </div>
             </motion.div>
           ))}
+        </motion.div>
+
+        <motion.div variants={fadeUp} className="mt-10 md:mt-12 flex justify-center text-center px-4">
+          <p className="font-display text-white/50 text-sm md:text-base italic max-w-2xl">
+            "Jelajahi berbagai album dokumentasi, di balik layar, dan proses kreatif tim kami."
+          </p>
         </motion.div>
       </motion.div>
 
