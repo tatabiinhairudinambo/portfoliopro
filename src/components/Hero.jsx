@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import LogoLoop from './LogoLoop';
+import RotatingText from './RotatingText';
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss } from 'react-icons/si';
 
 const techLogos = [
@@ -110,6 +111,16 @@ export default function Hero({ scrollTo }) {
       transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
     >
 
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <picture>
+          <source srcSet="/background.webp" type="image/webp" />
+          <source srcSet="/background.jpg" type="image/jpeg" />
+          <img src="/background.jpg" alt="" className="w-full h-full object-cover" />
+        </picture>
+        <div className="absolute inset-0 bg-dark/60"></div>
+      </div>
+
       {/* Decorative Glows */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="absolute top-1/4 -left-32 w-96 h-96 bg-accent/10 rounded-full blur-[120px] animate-glow" />
@@ -214,9 +225,9 @@ export default function Hero({ scrollTo }) {
                   {/* Back Face Content */}
                   <div className="relative z-20 flex flex-col items-center justify-center h-full w-full p-4 text-center">
                     <h3 className="text-white font-display font-bold text-lg sm:text-xl md:text-2xl tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] mb-1">
-                      ATTA DEV
+                      ATTA II DEV
                     </h3>
-                    <p className="text-white/95 font-body text-[10px] sm:text-xs md:text-sm font-light tracking-wide mb-2 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                    <p className="text-white/95 font-display text-[10px] sm:text-xs md:text-sm font-light tracking-wide mb-2 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                       Indonesia | Cileungsi, Jawa Barat
                     </p>
                     <div className="text-white/95 font-body font-medium text-xs sm:text-sm md:text-base drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
@@ -239,37 +250,32 @@ export default function Hero({ scrollTo }) {
         </motion.div>
 
         {/* Title */}
-        {/* Title */}
         <div className="flex flex-col items-center mt-3 md:mt-6 pointer-events-auto px-4 w-full">
-          <h2 className="font-body text-sm sm:text-lg md:text-2xl font-light tracking-wide text-center flex justify-center items-center gap-1.5 md:gap-2">
-            <motion.span
-              className="text-white/50 inline-block"
-              animate={{
-                y: [0, -4, 0, 4, 0],
-                rotate: [0, -2, 2, -1, 0]
-              }}
-              transition={{
-                repeat: Infinity,
-                duration: 2.5,
-                ease: "easeInOut"
-              }}
-            >
-              Freelance Full
-            </motion.span>
-            <motion.span
-              className="text-accent inline-block"
-              animate={{
-                y: [0, 4, 0, -4, 0],
-                rotate: [0, 2, -2, 1, 0]
-              }}
-              transition={{
-                repeat: Infinity,
-                duration: 2.8,
-                ease: "easeInOut"
-              }}
-            >
-              Stack Developer.
-            </motion.span>
+          <h2 className="font-body text-sm sm:text-lg md:text-2xl tracking-wide text-center flex justify-center items-center" style={{ fontFamily: "'Pacifico', cursive" }}>
+            <RotatingText
+              texts={[
+                'Freelance Full Stack Developer.',
+                'Frontend Developer.',
+                'UI/UX Enthusiast.',
+                'Tech Enthusiast.',
+              ]}
+              classNames={[
+                'text-cyan-300',
+                'text-pink-400',
+                'text-amber-400',
+                'text-emerald-400',
+              ]}
+              mainClassName="justify-center overflow-hidden"
+              staggerFrom={"last"}
+              initial={{ y: "100%", opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: "-120%", opacity: 0 }}
+              staggerDuration={0.02}
+              splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              rotationInterval={4400}
+              splitBy="lines"
+            />
           </h2>
           <div className="h-[2px] w-full mt-3 bg-gradient-to-r from-transparent via-blue-500 to-transparent bg-[length:200%_100%] rounded-full opacity-80" style={{ animation: 'gradientRotate 2s linear infinite' }}></div>
         </div>
