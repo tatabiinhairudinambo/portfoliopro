@@ -1,29 +1,27 @@
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 
-export default function BackToTop({ scrollTo }) {
+export default function BackToTop() {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setVisible(window.scrollY > 400)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    const onScroll = () => setVisible(window.scrollY > 400)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
     <AnimatePresence>
       {visible && (
         <motion.button
-          initial={{ opacity: 0, scale: 0.8, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.8, y: 20 }}
-          onClick={() => scrollTo(0)}
-          className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-accent shadow-[0_0_20px_rgba(108,99,255,0.3)] flex items-center justify-center md:hidden hover:bg-accent-light transition-colors"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 16 }}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="fixed bottom-6 right-6 z-[220] w-12 h-12 rounded-full bg-[#FFFFFF] text-[#080808] transition-transform duration-[220ms] hover:-translate-y-0.5"
           aria-label="Back to top"
         >
-          <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-          </svg>
+          ↑
         </motion.button>
       )}
     </AnimatePresence>
